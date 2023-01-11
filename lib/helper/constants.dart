@@ -7,10 +7,10 @@
 // const AUTH_REALMS = "drilling-today";
 
 // const AUTH_DOMAIN = "192.168.5.122:8080";
-const AUTH_DOMAIN = "192.168.0.14:8080";
-const AUTH_CLIENT_ID = "cocreator";
-const AUTH_ISSUER = "http://192.168.0.14:8080/realms/Cocreator";
+const AUTH_DOMAIN = "192.168.5.165:8080";
+const AUTH_CLIENT_ID = "dev_client";
+const AUTH_ISSUER = "http://192.168.5.165:8080/realms/Dev";
 const BUNDLE_IDENTIFIER = "me.smitppatel35.keycloakflutter";
 const AUTH_REDIRECT_URI = "$BUNDLE_IDENTIFIER://login-callback";
 const AUTH_REFRESH_TOKEN_KEY = 'refresh-token';
-const AUTH_REALMS = "Cocreator";
+const AUTH_REALMS = "Dev";

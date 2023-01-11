@@ -1,17 +1,19 @@
-import 'package:keycloakflutter/shared/preferences.dart';
+// import 'package:keycloakflutter/shared/preferences.dart';
 import 'package:keycloakflutter/theme/app_theme.dart';
 import 'package:keycloakflutter/widgets/switch_dark_mode.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../screens/login/service/auth_service2.dart';
+import 'package:keycloakflutter/services/auth_service.dart';
+// import 'package:provider/provider.dart';
+
+// import '../screens/login/service/auth_service2.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final authService = Provider.of<AuthService>(context, listen: false);
+    // final authService = Provider.of<AuthService>(context, listen: false);
 
     return Scaffold(
       backgroundColor: AppTheme.primary,
@@ -28,7 +30,7 @@ class CustomDrawer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    Preferences.name,
+                    AuthService.instance.profile!.name,
                     style: const TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.w600,
@@ -121,8 +123,8 @@ class CustomDrawer extends StatelessWidget {
           ),
           TextButton.icon(
               onPressed: (() {
-                authService.logout();
-                Navigator.pushReplacementNamed(context, '/login');
+                AuthService.instance.logout();
+                // Navigator.pushReplacementNamed(context, '/login');
               }),
               icon: const Icon(
                 Icons.exit_to_app,

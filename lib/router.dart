@@ -8,17 +8,17 @@ final router = GoRouter(
   redirect: (GoRouterState state) {
     final loggedIn = AuthService.instance.logininfo.isLoggedIn;
 
-    final isLogging = state.location == '/home';
+    final isLogging = state.location == '/initialScreen';
 
-    if (!loggedIn && !isLogging) return '/home';
-    if (loggedIn && isLogging) return '/menu';
+    if (!loggedIn && !isLogging) return '/initialScreen';
+    if (loggedIn && isLogging) return '/home';
 
     return null;
   },
   refreshListenable: AuthService.instance.logininfo,
   urlPathStrategy: UrlPathStrategy.path,
   debugLogDiagnostics: false,
-  initialLocation: AuthService.instance.logininfo.isLoggedIn ? '/menu' : '/',
+  initialLocation: AuthService.instance.logininfo.isLoggedIn ? '/home' : '/',
   routes: [
     GoRoute(
       name: 'home',
@@ -30,7 +30,7 @@ final router = GoRouter(
     ),
     GoRoute(
       name: 'menu',
-      path: '/menu',
+      path: '/home',
       pageBuilder: (context, state) => MaterialPage(
         key: state.pageKey,
         child: MenuScreen(),
@@ -38,7 +38,7 @@ final router = GoRouter(
     ),
     GoRoute(
       name: 'login',
-      path: '/home',
+      path: '/initialScreen',
       pageBuilder: (context, state) => MaterialPage(
         key: state.pageKey,
         child: HomeScreen(),

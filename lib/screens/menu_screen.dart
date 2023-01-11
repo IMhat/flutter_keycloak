@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-//import 'package:keycloakflutter/services/auth_service.dart';
+import 'package:keycloakflutter/services/auth_service.dart';
 
 import 'package:keycloakflutter/screens/home/widgets_home/analytic_card.dart';
 import 'package:keycloakflutter/screens/home/widgets_home/footer_home.dart';
 import 'package:keycloakflutter/screens/home/widgets_home/total_balance_card.dart';
-import '../../shared/preferences.dart';
+// import '../../shared/preferences.dart';
 import '../../widgets/custom_drawer.dart';
 
 class MenuScreen extends StatefulWidget {
@@ -17,8 +17,7 @@ class MenuScreen extends StatefulWidget {
 class _MenuScreenState extends State<MenuScreen> {
   @override
   Widget build(BuildContext context) {
-
-      return Scaffold(
+    return Scaffold(
         drawer: const Drawer(
           child: CustomDrawer(),
         ),
@@ -41,9 +40,8 @@ class _MenuScreenState extends State<MenuScreen> {
               ),
             )
           ],
-          title: Text(
-            Preferences.name,
-          ),
+          title: Text(AuthService.instance.profile!.name),
+          // "Hi Guest!"),
           //actions: const [IaIcon()],
         ),
         body: SingleChildScrollView(
@@ -63,9 +61,28 @@ class _MenuScreenState extends State<MenuScreen> {
             ),
           ),
         ));
+
+    // return Scaffold(
+    //   body: Center(
+    //     child: Column(
+    //       mainAxisAlignment: MainAxisAlignment.center,
+    //       children: <Widget>[
+    //         Text(AuthService.instance.profile!.name),
+    //         Text(
+    //           'You\'re logged in',
+    //         ),
+    //         OutlinedButton(
+    //             onPressed: () {
+    //               AuthService.instance.logout();
+    //             },
+    //             child: Text("Logout"))
+    //       ],
+    //     ),
+    //   ),
+    // );
   }
 
-    /*
+  /*
     return Scaffold(
       body: Center(
         child: Column(
