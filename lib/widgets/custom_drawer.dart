@@ -3,7 +3,8 @@ import 'package:keycloakflutter/theme/app_theme.dart';
 import 'package:keycloakflutter/widgets/switch_dark_mode.dart';
 import 'package:flutter/material.dart';
 
-import 'package:keycloakflutter/services/auth_service.dart';
+import '../screens/login/service/auth_service.dart';
+
 // import 'package:provider/provider.dart';
 
 // import '../screens/login/service/auth_service2.dart';

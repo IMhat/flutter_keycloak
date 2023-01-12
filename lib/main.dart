@@ -3,15 +3,21 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:keycloakflutter/router.dart';
+import 'package:keycloakflutter/screens/login/check_auth_screen.dart';
+
+import 'package:keycloakflutter/screens/login/service/auth_service.dart';
+import 'package:keycloakflutter/screens/login/service/helper/is_debug.dart';
+
 import 'package:keycloakflutter/screens/login/service/notifications_service.dart';
-import 'package:keycloakflutter/services/auth_service.dart';
+
 import 'package:keycloakflutter/shared/preferences.dart';
 import 'package:keycloakflutter/theme/theme.dart';
+import 'package:keycloakflutter/widgets/bottom_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-import 'helper/is_debug.dart';
-
+int? isviewed;
 Future<void> main() async {
   runZonedGuarded<Future<void>>(() async {
     WidgetsFlutterBinding.ensureInitialized();
@@ -22,6 +28,9 @@ Future<void> main() async {
     );
 
     await AuthService.instance.init();
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    isviewed = prefs.getInt('onBoard');
 
     runApp(MultiProvider(
         providers: [
@@ -85,11 +94,13 @@ class MyApp extends StatelessWidget {
             ),
         debugShowCheckedModeBanner: false,
         scaffoldMessengerKey: NotificationsService.messengerKey,
-        // title: 'The Co Creator',
+        title: 'The Co Creator',
         theme: currenTheme,
         // onGenerateRoute: (settings) => generateRoute(settings),
         // routes: AppRoutes.getAppRoutes(),
+        //home: const CheckAuthScreen());
         home: const MyHomePage(title: 'The Co Creator'));
+    // home: isviewed != 0 ? OnBoard() : const BottomBar());
   }
 }
 
@@ -104,6 +115,7 @@ class MyApp extends StatelessWidget {
 //               minWidth: 480,
 //               defaultScale: true,
 //               breakpoints: [
+
 //                 const ResponsiveBreakpoint.resize(450, name: MOBILE),
 //                 const ResponsiveBreakpoint.autoScale(800, name: TABLET),
 //                 const ResponsiveBreakpoint.resize(1000, name: DESKTOP),

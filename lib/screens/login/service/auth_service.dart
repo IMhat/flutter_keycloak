@@ -269,4 +269,8 @@ class AuthService {
       throw Exception('Failed to get user details!');
     }
   }
+
+  // Future<String> readToken() async {
+  //   return await secureStoreage.read(key: AUTH_REFRESH_TOKEN_KEY) ?? '';
+  // }
 }

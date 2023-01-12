@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:keycloakflutter/screens/home_screen.dart';
-import 'package:keycloakflutter/screens/menu_screen.dart';
-import 'package:keycloakflutter/services/auth_service.dart';
+import 'package:keycloakflutter/screens/conections/connections_screen.dart';
+import 'package:keycloakflutter/screens/login/check_onboarding.dart';
+
+import 'package:keycloakflutter/screens/login/initial_screen.dart';
+import 'package:keycloakflutter/screens/login/service/auth_service.dart';
+
+import 'package:keycloakflutter/screens/questions/question1.dart';
+import 'package:keycloakflutter/screens/questions/question2.dart';
+import 'package:keycloakflutter/screens/questions/question3.dart';
+
+import 'package:keycloakflutter/widgets/bottom_bar.dart';
 
 final router = GoRouter(
   redirect: (GoRouterState state) {
     final loggedIn = AuthService.instance.logininfo.isLoggedIn;
 
     final isLogging = state.location == '/initialScreen';
+    final isViewed = 0;
 
     if (!loggedIn && !isLogging) return '/initialScreen';
     if (loggedIn && isLogging) return '/home';
@@ -25,7 +34,8 @@ final router = GoRouter(
       path: '/',
       pageBuilder: (context, state) => MaterialPage(
         key: state.pageKey,
-        child: HomeScreen(),
+        // child: HomeScreen(),
+        child: InitialScreen(),
       ),
     ),
     GoRoute(
@@ -33,7 +43,18 @@ final router = GoRouter(
       path: '/home',
       pageBuilder: (context, state) => MaterialPage(
         key: state.pageKey,
-        child: MenuScreen(),
+        // child: MenuScreen(),
+        // child: BottomBar(),
+        child: Check(),
+      ),
+    ),
+    GoRoute(
+      name: 'ActualHome',
+      path: '/actual-home',
+      pageBuilder: (context, state) => MaterialPage(
+        key: state.pageKey,
+        // child: MenuScreen(),
+        child: BottomBar(),
       ),
     ),
     GoRoute(
@@ -41,7 +62,41 @@ final router = GoRouter(
       path: '/initialScreen',
       pageBuilder: (context, state) => MaterialPage(
         key: state.pageKey,
-        child: HomeScreen(),
+        child: InitialScreen(),
+      ),
+    ),
+    //QUESTIONS---------------------------------------!
+    GoRoute(
+      name: 'Question-1',
+      path: '/question-1',
+      pageBuilder: (context, state) => MaterialPage(
+        key: state.pageKey,
+        child: const Question1Screen(),
+      ),
+    ),
+    GoRoute(
+      name: 'Question-2',
+      path: '/question-2',
+      pageBuilder: (context, state) => MaterialPage(
+        key: state.pageKey,
+        child: const Question2Screen(),
+      ),
+    ),
+    GoRoute(
+      name: 'Question-3',
+      path: '/question-3',
+      pageBuilder: (context, state) => MaterialPage(
+        key: state.pageKey,
+        child: const Question3Screen(),
+      ),
+    ),
+    //CONECTIONS-------------------------!
+    GoRoute(
+      name: 'Conections',
+      path: '/conections',
+      pageBuilder: (context, state) => MaterialPage(
+        key: state.pageKey,
+        child: const ConnectionsScreen(),
       ),
     ),
   ],

@@ -1,5 +1,7 @@
-import 'package:keycloakflutter/screens/login/service/auth_service2.dart';
 import 'package:flutter/material.dart';
+import 'package:keycloakflutter/screens/home/home_screen.dart';
+import 'package:keycloakflutter/screens/login/service/auth_service.dart';
+
 import 'package:provider/provider.dart';
 
 import '../../widgets/bottom_bar.dart';
@@ -15,7 +17,7 @@ class CheckAuthScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: FutureBuilder(
-          future: authService.readToken(),
+          // future: authService.readToken(),
           builder: ((BuildContext context, AsyncSnapshot<String> snapshot) {
             if (!snapshot.hasData) return const Text('Wait');
 
@@ -24,7 +26,8 @@ class CheckAuthScreen extends StatelessWidget {
                   context,
                   PageRouteBuilder(
                       pageBuilder: (_, __, ___) => snapshot.data == ''
-                          ? const LoginScreen()
+                          ? const HomeScreen()
+                          // ? const LoginScreen()
                           : const BottomBar(),
                       transitionDuration: const Duration(seconds: 0)));
             });
