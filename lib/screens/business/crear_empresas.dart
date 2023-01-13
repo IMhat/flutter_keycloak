@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:keycloakflutter/providers/empresas_provider.dart';
 import 'package:keycloakflutter/theme/app_theme.dart';
 
@@ -19,10 +20,11 @@ class CrearEmpresasScreen extends StatelessWidget {
             ),
       floatingActionButton: FloatingActionButton(
         onPressed: (() {
-          Navigator.pushNamed(
-            context,
-            '/form-crear-empresas',
-          );
+          //  Navigator.pushNamed(
+          //       context,
+          //       '/form-crear-empresas',
+          //     );
+          context.go('/form-crear-empresas');
         }),
         child: const Icon(Icons.add),
       ),

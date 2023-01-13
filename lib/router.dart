@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:keycloakflutter/screens/conections/connections_screen.dart';
+import 'package:keycloakflutter/main.dart';
+import 'package:keycloakflutter/screens/business/crear_empresas.dart';
+import 'package:keycloakflutter/screens/business/formulario_crear_empresas.dart';
+
+import 'package:keycloakflutter/screens/ia/ia_screen.dart';
 import 'package:keycloakflutter/screens/login/check_onboarding.dart';
 
 import 'package:keycloakflutter/screens/login/initial_screen.dart';
 import 'package:keycloakflutter/screens/login/service/auth_service.dart';
+import 'package:keycloakflutter/screens/questions/ia.dart';
+import 'package:keycloakflutter/screens/questions/lenguaje.dart';
 
 import 'package:keycloakflutter/screens/questions/question1.dart';
 import 'package:keycloakflutter/screens/questions/question2.dart';
@@ -65,7 +71,23 @@ final router = GoRouter(
         child: InitialScreen(),
       ),
     ),
-    //QUESTIONS---------------------------------------!
+    //ONBOARDING---------------------------------------!
+    GoRoute(
+      name: 'Lenguaje',
+      path: '/lenguaje',
+      pageBuilder: (context, state) => MaterialPage(
+        key: state.pageKey,
+        child: const LenguajeScreen(),
+      ),
+    ),
+    GoRoute(
+      name: 'Ia',
+      path: '/OnboardingIa',
+      pageBuilder: (context, state) => MaterialPage(
+        key: state.pageKey,
+        child: const OnboardingIaScreen(),
+      ),
+    ),
     GoRoute(
       name: 'Question-1',
       path: '/question-1',
@@ -90,13 +112,22 @@ final router = GoRouter(
         child: const Question3Screen(),
       ),
     ),
-    //CONECTIONS-------------------------!
+
+    //EMPRESAS--------------------------------!
     GoRoute(
-      name: 'Conections',
-      path: '/conections',
+      name: 'Crear-empresas',
+      path: '/crear-empresas',
       pageBuilder: (context, state) => MaterialPage(
         key: state.pageKey,
-        child: const ConnectionsScreen(),
+        child: const CrearEmpresasScreen(),
+      ),
+    ),
+    GoRoute(
+      name: 'Form-crear-empresas',
+      path: '/form-crear-empresas',
+      pageBuilder: (context, state) => MaterialPage(
+        key: state.pageKey,
+        child: const FormCrearEmpresas(),
       ),
     ),
   ],

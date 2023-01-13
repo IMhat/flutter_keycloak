@@ -12,9 +12,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'widgets/button_gradient.dart';
 
-class Question3Screen extends StatelessWidget {
-  static const String routeName = '/question-3';
-  const Question3Screen({Key? key}) : super(key: key);
+class OnboardingIaScreen extends StatelessWidget {
+  static const String routeName = '/iaScreen';
+  const OnboardingIaScreen({Key? key}) : super(key: key);
 
   void _storeOnboardInfo() async {
     print("Shared pref called");
@@ -46,7 +46,7 @@ class Question3Screen extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(
-                  height: 60,
+                  height: 80,
                 ),
                 SizedBox(
                     child: Align(
@@ -57,39 +57,29 @@ class Question3Screen extends StatelessWidget {
                     size: 30,
                   ),
                 )),
+                // ACA HAY QUE AÑADIR LA PELOTA BLANCA QUE HABLA Y TIENE EFECTOS--------------------------
+
+                //---------------------------------------------------------------
+
                 const SizedBox(
-                  height: 100,
+                  height: 400,
+                  width: 350,
                 ),
                 SizedBox(
                     child: Align(
                   alignment: Alignment.centerLeft,
                   child: SmallText(
-                    text:
-                        '  Here select the phrase with which you feel best identified.',
+                    text: '  Hello user! my name is ...',
                     size: 20,
                     color: Colors.white,
                   ),
                 )),
-
                 const SizedBox(
-                  height: 50,
+                  height: 150,
                   width: 350,
                 ),
-                SizedBox(
-                    child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: BigTextBlack(
-                    text: '  Personality setup',
-                    size: 30,
-                    color: Colors.white,
-                  ),
-                )),
-                // ACA HAY QUE CARGAR LAS PREGUNTAS BAJADAS DE LA API REST--------------------------------------
-
-                //----------------------------------------------------------------------
                 const SizedBox(
-                  height: 425,
-                  width: 350,
+                  height: 20,
                 ),
                 ButtonGradient(
                   decoration: BoxDecoration(
@@ -114,14 +104,13 @@ class Question3Screen extends StatelessWidget {
                     //   context,
                     //   '/question2',
                     // );
-                    context.go('/actual-home');
+                    context.go('/OnboardingIa');
                   },
-                  text: 'Confirm',
+                  text: 'Repeat',
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-
                 ButtonGradient(
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
@@ -145,9 +134,9 @@ class Question3Screen extends StatelessWidget {
                     //   context,
                     //   '/question2',
                     // );
-                    context.go('/actual-home');
+                    context.go('/question-1');
                   },
-                  text: '  Later >|',
+                  text: '  Skip >|',
                 ),
                 // TextButton(
                 //   onPressed: () {
@@ -209,3 +198,7 @@ class Question3Screen extends StatelessWidget {
     );
   }
 }
+
+
+// Color(0xffFD0745),
+//                     Color(0xff6D49C2),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:keycloakflutter/providers/empresas_provider.dart';
 
 import '../../theme/app_theme.dart';
@@ -32,7 +33,7 @@ class _FormCrearEmpresasState extends State<FormCrearEmpresas> {
                       onPressed: (() {
                         idForm.currentState?.save();
                         EmpresasProvider().agregarEmpresa(nuevaempresa);
-                        Navigator.pop(context);
+                        context.go('/actual-home');
                       }),
                       child: const Text('crear'))
                 ],

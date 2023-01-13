@@ -4,6 +4,7 @@ class ButtonGradient extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
   final dynamic decoration;
+
   const ButtonGradient({
     Key? key,
     required this.text,

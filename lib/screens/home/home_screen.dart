@@ -1,3 +1,4 @@
+import 'package:go_router/go_router.dart';
 import 'package:keycloakflutter/screens/home/widgets_home/analytic_card.dart';
 import 'package:keycloakflutter/screens/home/widgets_home/footer_home.dart';
 import 'package:keycloakflutter/screens/home/widgets_home/total_balance_card.dart';
@@ -23,10 +24,11 @@ class HomeScreen extends StatelessWidget {
               color: Colors.white,
             ),
             onPressed: () {
-              Navigator.pushNamed(
-                context,
-                '/crear-empresas',
-              );
+              // Navigator.pushNamed(
+              //   context,
+              //   '/crear-empresas',
+              // );
+              context.go('/crear-empresas');
             },
             label: const Text(
               'Create Company',
