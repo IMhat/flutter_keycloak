@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:keycloakflutter/screens/login/constant.dart';
+import 'package:keycloakflutter/screens/login(keycloak)/constant.dart';
 import 'package:keycloakflutter/screens/questions/widgets/answer_button.dart';
 import 'package:keycloakflutter/screens/questions/widgets/big_text.dart';
 import 'package:keycloakflutter/screens/questions/widgets/big_text_black.dart';
@@ -162,18 +162,18 @@ class LenguajeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   onTap: () {
-                    _storeOnboardInfo();
-                    // Navigator.pushNamed(
-                    //   context,
-                    //   '/question2',
-                    // );
-                    context.go('/OnboardingIa');
+                    // _storeOnboardInfo();
+                    Navigator.pushNamed(
+                      context,
+                      '/iaScreen',
+                    );
+                    // context.go('/OnboardingIa');
                   },
                   text: 'Continuos',
                 ),
                 TextButton(
                   onPressed: () {
-                    _storeOnboardInfo();
+                    //_storeOnboardInfo();
                     Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (context) => BottomBar()));
                   },

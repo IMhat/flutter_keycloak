@@ -18,6 +18,7 @@ void check() async {
 }
 
 class Check extends StatefulWidget {
+  static const String routeName = '/check-screen';
   const Check({super.key});
 
   @override
@@ -41,6 +42,8 @@ class _CheckState extends State<Check> {
     // }
 
     //crear una screen para las otras pantallas( ejemplo selector de idioma)
+
+    //para trabajar en las preguntas, poner isViewed != 1, pq esta programado para que si ya respondiste las preguntas, no te las vuelva a mostar! (con isViewed != 0)
 
     return Scaffold(
         body: Container(

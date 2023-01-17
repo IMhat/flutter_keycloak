@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:keycloakflutter/screens/login/constant.dart';
+import 'package:keycloakflutter/screens/login(keycloak)/constant.dart';
+import 'package:keycloakflutter/screens/questions/widgets/accounts.dart';
 import 'package:keycloakflutter/screens/questions/widgets/answer_button.dart';
 import 'package:keycloakflutter/screens/questions/widgets/big_text.dart';
 import 'package:keycloakflutter/screens/questions/widgets/big_text_black.dart';
 import 'package:keycloakflutter/screens/questions/widgets/lenguague_button.dart';
+import 'package:keycloakflutter/screens/questions/widgets/question.dart';
 import 'package:keycloakflutter/screens/questions/widgets/small_text.dart';
 
 import 'package:keycloakflutter/widgets/bottom_bar.dart';
@@ -34,13 +36,14 @@ class Question1Screen extends StatelessWidget {
                 gradient: LinearGradient(
                     begin: Alignment.centerRight,
                     end: Alignment.centerLeft,
-                    stops: [
-                  0.2,
-                  9,
-                ],
+                    //     stops: [
+                    //   0.2,
+                    //   9,
+                    // ],
                     colors: [
-                  Color.fromARGB(255, 104, 191, 250),
-                  Color.fromARGB(255, 0, 102, 255)
+                  Color.fromARGB(255, 143, 200, 241),
+                  // Color.fromARGB(255, 94, 129, 253),
+                  Color.fromARGB(255, 70, 106, 234)
                 ])),
             // alignment: Alignment.centerLeft,
             child: Column(
@@ -84,10 +87,13 @@ class Question1Screen extends StatelessWidget {
                   ),
                 )),
                 // ACA HAY QUE CARGAR LAS PREGUNTAS BAJADAS DE LA API REST--------------------------------------
+                const SizedBox(
+                  child: Accounts(),
+                ),
 
                 //----------------------------------------------------------------------
                 const SizedBox(
-                  height: 425,
+                  height: 70,
                   width: 350,
                 ),
                 ButtonGradient(
@@ -108,12 +114,12 @@ class Question1Screen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   onTap: () {
-                    _storeOnboardInfo();
-                    // Navigator.pushNamed(
-                    //   context,
-                    //   '/question2',
-                    // );
-                    context.go('/question-2');
+                    //_storeOnboardInfo();
+                    Navigator.pushNamed(
+                      context,
+                      '/question-2',
+                    );
+                    //context.go('/question-2');
                   },
                   text: 'Confirm',
                 ),
@@ -139,12 +145,12 @@ class Question1Screen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   onTap: () {
-                    _storeOnboardInfo();
-                    // Navigator.pushNamed(
-                    //   context,
-                    //   '/question2',
-                    // );
-                    context.go('/question-2');
+                    //_storeOnboardInfo();
+                    Navigator.pushNamed(
+                      context,
+                      '/question-2',
+                    );
+                    //context.go('/question-2');
                   },
                   text: '  Later >|',
                 ),

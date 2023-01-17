@@ -3,7 +3,7 @@ import 'package:keycloakflutter/screens/home/widgets_home/analytic_card.dart';
 import 'package:keycloakflutter/screens/home/widgets_home/footer_home.dart';
 import 'package:keycloakflutter/screens/home/widgets_home/total_balance_card.dart';
 import 'package:flutter/material.dart';
-import 'package:keycloakflutter/screens/login/service/auth_service.dart';
+import 'package:keycloakflutter/screens/login(keycloak)/service/auth_service.dart';
 
 import '../../shared/preferences.dart';
 import '../../widgets/custom_drawer.dart';
@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
               style: TextStyle(color: Colors.white),
             ),
           )
-        ], title: Text(AuthService.instance.profile!.name)
+        ], title: Text('Hi Guest')
 
             //actions: const [IaIcon()],
             ),

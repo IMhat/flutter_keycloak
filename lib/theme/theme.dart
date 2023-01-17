@@ -20,16 +20,16 @@ class ThemeChanger with ChangeNotifier {
         _currentTheme = AppTheme.lightTheme;
         break;
 
-      case 2: // Dark
-        _darkTheme = true;
-        _customTheme = false;
-        _currentTheme = ThemeData.dark().copyWith(cardColor: Colors.pink);
-        break;
+      // case 2: // Dark
+      //   _darkTheme = true;
+      //   _customTheme = false;
+      //   _currentTheme = ThemeData.dark().copyWith(cardColor: Colors.pink);
+      //   break;
 
-      case 3: // Dark
-        _darkTheme = false;
-        _customTheme = true;
-        break;
+      // case 3: // Dark
+      //   _darkTheme = false;
+      //   _customTheme = true;
+      //   break;
 
       default:
         _darkTheme = false;

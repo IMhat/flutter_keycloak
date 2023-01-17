@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:keycloakflutter/screens/home/home_screen.dart';
-import 'package:keycloakflutter/screens/login/service/auth_service.dart';
+import 'package:keycloakflutter/screens/login(keycloak)/service/auth_service.dart';
 
 import 'package:provider/provider.dart';
 

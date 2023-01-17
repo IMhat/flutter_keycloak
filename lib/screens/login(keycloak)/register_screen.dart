@@ -1,5 +1,5 @@
-import 'package:keycloakflutter/screens/login/service/auth_service2.dart';
-import 'package:keycloakflutter/screens/login/widget/button_initial.dart';
+import 'package:keycloakflutter/screens/login(keycloak)/service/auth_service2.dart';
+import 'package:keycloakflutter/screens/login(keycloak)/widget/button_initial.dart';
 import 'package:keycloakflutter/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

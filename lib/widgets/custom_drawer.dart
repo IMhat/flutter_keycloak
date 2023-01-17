@@ -1,9 +1,8 @@
 // import 'package:keycloakflutter/shared/preferences.dart';
+import 'package:keycloakflutter/login(JWT)/services/auth_service.dart';
 import 'package:keycloakflutter/theme/app_theme.dart';
 import 'package:keycloakflutter/widgets/switch_dark_mode.dart';
 import 'package:flutter/material.dart';
-
-import '../screens/login/service/auth_service.dart';
 
 // import 'package:provider/provider.dart';
 
@@ -15,7 +14,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // final authService = Provider.of<AuthService>(context, listen: false);
-
+    final AuthService authService = AuthService();
     return Scaffold(
       backgroundColor: AppTheme.primary,
       body: ListView(
@@ -31,7 +30,8 @@ class CustomDrawer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    AuthService.instance.profile!.name,
+                    'Hi Guest',
+                    //AuthService.instance.profile!.name,
                     style: const TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.w600,
@@ -124,8 +124,9 @@ class CustomDrawer extends StatelessWidget {
           ),
           TextButton.icon(
               onPressed: (() {
-                AuthService.instance.logout();
+                //AuthService.instance.logout();(CIERRE DE SESION CON KEYCLOAK!)
                 // Navigator.pushReplacementNamed(context, '/login');
+                authService.logOut(context);
               }),
               icon: const Icon(
                 Icons.exit_to_app,

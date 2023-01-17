@@ -13,13 +13,13 @@ class AppTheme {
         color: primary, elevation: 0,
         //foregroundColor: primary : este es el color del icono de appbar
       ),
-      textTheme: const TextTheme(
-        bodyText2: TextStyle(
-            color: Colors.black,
-            fontFamily: 'Sans',
-            fontSize: 15,
-            fontWeight: FontWeight.w600),
-      ),
+      textTheme: const TextTheme(bodyText1: TextStyle(color: Colors.black)
+          // bodyText2: TextStyle(
+          //     color: Colors.black,
+          //     fontFamily: 'Sans',
+          //     fontSize: 15,
+          //     fontWeight: FontWeight.w600),
+          ),
 
       // TextButton Theme
       textButtonTheme:

@@ -1,7 +1,7 @@
-import 'package:keycloakflutter/screens/login/service/auth_service2.dart';
-import 'package:keycloakflutter/screens/login/service/notifications_service.dart';
-import 'package:keycloakflutter/screens/login/widget/button_initial.dart';
-import 'package:keycloakflutter/screens/login/widget/logo_social_login.dart';
+import 'package:keycloakflutter/screens/login(keycloak)/service/auth_service2.dart';
+import 'package:keycloakflutter/screens/login(keycloak)/service/notifications_service.dart';
+import 'package:keycloakflutter/screens/login(keycloak)/widget/button_initial.dart';
+import 'package:keycloakflutter/screens/login(keycloak)/widget/logo_social_login.dart';
 import 'package:keycloakflutter/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,8 +15,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
-
     return Scaffold(
       body: SingleChildScrollView(
           child: ChangeNotifierProvider(
