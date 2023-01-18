@@ -1,3 +1,4 @@
+import 'package:keycloakflutter/screens/hakim/screens/speech_screen.dart';
 import 'package:keycloakflutter/social%20media/social_screen.dart';
 import 'package:keycloakflutter/theme/app_theme.dart';
 import 'package:keycloakflutter/widgets/ia.dart';
@@ -5,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../screens/cashflow/cash_flow_screen.dart';
 import '../screens/home/home_screen.dart';
-import '../screens/ia/ia_screen.dart';
+import '../screens/hakim/ia_screen.dart';
 import 'global_variables.dart';
 
 class BottomBar extends StatefulWidget {
@@ -24,8 +25,9 @@ class _BottomBarState extends State<BottomBar> {
   List<Widget> pages = [
     const HomeScreen(),
     const CashFlowScreen(),
-    const IaScreen(),
-    const SocialScreen(), 
+    // const IaScreen(),
+    const SpeechScreen(),
+    const SocialScreen(),
     // const ProfileScreen(),
     const HomeScreen(),
   ];
@@ -51,7 +53,6 @@ class _BottomBarState extends State<BottomBar> {
         iconSize: 25,
         onTap: updatePage,
         items: [
-          
           BottomNavigationBarItem(
             icon: Container(
               width: bottomNavBarWidth,
@@ -69,7 +70,6 @@ class _BottomBarState extends State<BottomBar> {
             ),
             label: '',
           ),
-         
           BottomNavigationBarItem(
             icon: Container(
               width: bottomNavBarWidth,
@@ -87,7 +87,6 @@ class _BottomBarState extends State<BottomBar> {
             ),
             label: '',
           ),
-          
           BottomNavigationBarItem(
             icon: Container(
               width: bottomNavBarWidth,
@@ -105,8 +104,6 @@ class _BottomBarState extends State<BottomBar> {
             ),
             label: '',
           ),
-
-         
           BottomNavigationBarItem(
             icon: Container(
                 width: bottomNavBarWidth,
@@ -123,8 +120,6 @@ class _BottomBarState extends State<BottomBar> {
                 child: const Icon(FontAwesomeIcons.user)),
             label: '',
           ),
-
-         
           BottomNavigationBarItem(
             icon: Container(
                 width: bottomNavBarWidth,

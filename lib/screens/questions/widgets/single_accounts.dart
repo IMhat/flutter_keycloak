@@ -6,10 +6,10 @@ import '../../../models/accounts.dart';
 class SingleAccounts extends StatelessWidget {
   final AccountsConnect account;
 
-  final bool isSelected;
+  final bool isItemSelected;
 
   const SingleAccounts(
-      {Key? key, required this.account, required this.isSelected})
+      {Key? key, required this.account, required this.isItemSelected})
       : super(key: key);
 
   @override
@@ -27,7 +27,7 @@ class SingleAccounts extends StatelessWidget {
             title: account.title,
             image: account.image,
             item: account.item,
-            isSelected: isSelected,
+            isSelected: isItemSelected,
 
             //subTitle: widget.task.description,
           ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:keycloakflutter/providers/user_provider.dart';
 import 'package:keycloakflutter/router.dart';
 import 'package:keycloakflutter/router/app_routes.dart';
+import 'package:keycloakflutter/screens/hakim/controllers/tts.dart';
 import 'package:keycloakflutter/screens/login(keycloak)/check_onboarding.dart';
 import 'package:keycloakflutter/screens/login(keycloak)/service/notifications_service.dart';
 import 'package:keycloakflutter/shared/preferences.dart';
@@ -14,8 +16,12 @@ import 'login(JWT)/services/auth_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+  );
 
   await Preferences.init();
+  await TextToSpeech.initTTS();
 
   runApp(const AppState());
 }

@@ -3,8 +3,9 @@ import 'package:keycloakflutter/screens/business/crear_empresas.dart';
 import 'package:keycloakflutter/screens/business/formulario_crear_empresas.dart';
 import 'package:keycloakflutter/screens/cashflow/cash_flow_screen.dart';
 import 'package:keycloakflutter/screens/cashflow/credits.dart';
+import 'package:keycloakflutter/screens/hakim/screens/speech_screen.dart';
 import 'package:keycloakflutter/screens/home/home_screen.dart';
-import 'package:keycloakflutter/screens/ia/ia_screen.dart';
+import 'package:keycloakflutter/screens/hakim/ia_screen.dart';
 import 'package:keycloakflutter/screens/login(keycloak)/check_auth_screen.dart';
 import 'package:keycloakflutter/screens/login(keycloak)/check_onboarding.dart';
 import 'package:keycloakflutter/screens/login(keycloak)/register_screen.dart';
@@ -66,6 +67,13 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
     //     settings: routeSettings,
     //     builder: (_) => const Question3Screen(),
     //   );
+
+    //HAKIM
+    case SpeechScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const SpeechScreen(),
+      );
     case IaScreen.routeName:
       return MaterialPageRoute(
         settings: routeSettings,
