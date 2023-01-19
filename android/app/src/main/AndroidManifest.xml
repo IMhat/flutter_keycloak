@@ -1,7 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="me.smitppatel35.keycloakflutter">
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <queries>
+       <intent>
+           <action android:name="android.intent.action.TTS_SERVICE" />
+       </intent>
+    </queries>
 
    <application
         android:usesCleartextTraffic="true"
