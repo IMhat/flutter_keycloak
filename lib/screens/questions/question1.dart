@@ -52,6 +52,8 @@ class Question1Screen extends StatelessWidget {
                 const SizedBox(
                   height: 60,
                 ),
+                
+                
                 SizedBox(
                     child: Align(
                   alignment: Alignment.topCenter,
@@ -61,6 +63,16 @@ class Question1Screen extends StatelessWidget {
                     size: 30,
                   ),
                 )),
+                //aca va la pelota que habla
+
+IconButton(
+                  icon: Image.asset('assets/image.png'),
+                  iconSize: 80,
+                  
+                  onPressed: () {
+                    
+                  },
+                ),
                 const SizedBox(
                   height: 100,
                 ),

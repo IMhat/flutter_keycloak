@@ -6,6 +6,7 @@ import 'package:keycloakflutter/screens/questions/widgets/big_text.dart';
 import 'package:keycloakflutter/screens/questions/widgets/big_text_black.dart';
 import 'package:keycloakflutter/screens/questions/widgets/lenguague_button.dart';
 import 'package:keycloakflutter/screens/questions/widgets/small_text.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 import 'package:keycloakflutter/widgets/bottom_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -59,6 +60,12 @@ class OnboardingIaScreen extends StatelessWidget {
                   ),
                 )),
                 // ACA HAY QUE AÑADIR LA PELOTA BLANCA QUE HABLA Y TIENE EFECTOS--------------------------
+
+                IconButton(
+                  icon: Image.asset('assets/image.png'),
+                  iconSize: 200,
+                  onPressed: () {},
+                ),
 
                 //---------------------------------------------------------------
 
@@ -201,5 +208,6 @@ class OnboardingIaScreen extends StatelessWidget {
 }
 
 
+
 // Color(0xffFD0745),
-//                     Color(0xff6D49C2),
+//                     Color(0xff6D49C2)
