@@ -50,7 +50,7 @@ class _CashFlowScreenState extends State<CashFlowScreen>
               child: Material(
                 color: Colors.white,
                 child: TabBar(
-                  indicatorColor: const Color(0xff143E6C),
+                  indicatorColor: Color.fromARGB(255, 168, 172, 177),
                   controller: controller,
                   labelColor: Colors.black,
                   unselectedLabelColor: Colors.grey,

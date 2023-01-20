@@ -15,7 +15,7 @@ class SwitchDarkMode extends StatelessWidget {
         ListTile(
           leading: const Icon(
             Icons.lightbulb_outline,
-            color: Colors.blue,
+            color: Color.fromARGB(255, 255, 255, 255),
           ),
           title: const Text('Dark Mode'),
           trailing: Switch.adaptive(
@@ -26,7 +26,7 @@ class SwitchDarkMode extends StatelessWidget {
         ListTile(
           leading: const Icon(
             Icons.phone_android,
-            color: Colors.blue,
+            color: Color.fromARGB(255, 255, 255, 255),
           ),
           title: const Text('Custom Theme'),
           trailing: Switch.adaptive(
