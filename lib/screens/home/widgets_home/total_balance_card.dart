@@ -11,7 +11,7 @@ class TotalBalance extends StatelessWidget {
       width: 420,
       height: 140,
       decoration: BoxDecoration(
-        color: AppTheme.primary,
+        color: Color.fromARGB(255, 249, 251, 252),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
@@ -22,7 +22,7 @@ class TotalBalance extends StatelessWidget {
           const Text(
             'Total Balance',
             style: TextStyle(
-                color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
+                color: Color.fromARGB(255, 116, 167, 202), fontSize: 16, fontWeight: FontWeight.w500),
           ),
           const SizedBox(
             height: 10,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keycloakflutter/screens/hakim/controllers/tts.dart';
 import 'package:keycloakflutter/screens/login(keycloak)/constant.dart';
 import 'package:keycloakflutter/screens/questions/widgets/answer_button.dart';
 import 'package:keycloakflutter/screens/questions/widgets/big_text.dart';
@@ -13,9 +14,18 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'widgets/button_gradient.dart';
 
-class OnboardingIaScreen extends StatelessWidget {
+class OnboardingIaScreen extends StatefulWidget {
   static const String routeName = '/iaScreen';
   const OnboardingIaScreen({Key? key}) : super(key: key);
+ 
+  @override
+  State<OnboardingIaScreen> createState() => _OnboardingIaScreenState();
+}
+
+class _OnboardingIaScreenState extends State<OnboardingIaScreen> {
+  // class OnboardingIaScreen extends StatelessWidget {
+  // static const String routeName = '/iaScreen';
+  // const OnboardingIaScreen({Key? key}) : super(key: key);
 
   void _storeOnboardInfo() async {
     print("Shared pref called");
@@ -23,6 +33,20 @@ class OnboardingIaScreen extends StatelessWidget {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setInt('onBoard', isViewed);
     print(prefs.getInt('onBoard'));
+  }
+
+@override
+  void initState() {
+    super.initState();
+    talk();
+  }
+
+  String msg = "hola soy hakim, y en cocrietor estamos para que tu empresa tenga éxito";
+
+  void talk() {
+    Future.delayed(const Duration(milliseconds: 500), () {
+      TextToSpeech.speak(msg);
+    });
   }
 
   @override
@@ -77,7 +101,7 @@ class OnboardingIaScreen extends StatelessWidget {
                     child: Align(
                   alignment: Alignment.centerLeft,
                   child: SmallText(
-                    text: '  Hello user! my name is ...',
+                    text: '  hola soy hakim, y en cocrietor estamos para que tu empresa tenga éxito',
                     size: 20,
                     color: Colors.white,
                   ),

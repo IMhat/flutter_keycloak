@@ -13,11 +13,18 @@ import 'package:keycloakflutter/screens/questions/widgets/small_text.dart';
 import 'package:keycloakflutter/widgets/bottom_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../hakim/controllers/tts.dart';
 import 'widgets/button_gradient.dart';
 
-class Question1Screen extends StatelessWidget {
+class Question1Screen extends StatefulWidget {
   static const String routeName = '/question-1';
+
   const Question1Screen({Key? key}) : super(key: key);
+
+@override
+  State<Question1Screen> createState() => _Question1ScreenState();
+}
+class _Question1ScreenState extends State<Question1Screen> {
 
   void _storeOnboardInfo() async {
     print("Shared pref called");
@@ -25,6 +32,19 @@ class Question1Screen extends StatelessWidget {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setInt('onBoard', isViewed);
     print(prefs.getInt('onBoard'));
+  }
+@override
+  void initState() {
+    super.initState();
+    talk();
+  }
+
+  String msg = " A continuación, selecciona una cuenta de servicios financieros, esto te ayudará a administrar mejor tus ingresos y egresos, como así también, mantenerte en contacto con tu servicio financiero. no usamos ningún tipo de información que hayas proporcionado ";
+
+  void talk() {
+    Future.delayed(const Duration(milliseconds: 500), () {
+      TextToSpeech.speak(msg);
+    });
   }
 
   @override
@@ -80,7 +100,7 @@ IconButton(
                     child: Align(
                   alignment: Alignment.centerLeft,
                   child: SmallText(
-                    text: '  Here ...',
+                    text: '  A continuación, selecciona una cuenta de servicios financieros, esto te ayudará a administrar mejor tus ingresos y egresos, como así también, mantenerte en contacto con tu servicio financiero. no usamos ningún tipo de información que hayas proporcionado ',
                     size: 20,
                     color: Colors.white,
                   ),

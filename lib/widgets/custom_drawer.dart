@@ -16,14 +16,14 @@ class CustomDrawer extends StatelessWidget {
     // final authService = Provider.of<AuthService>(context, listen: false);
     final AuthService authService = AuthService();
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 0, 0, 0),
+      backgroundColor: AppTheme.primary,
       body: ListView(
         children: [
           Container(
             margin: const EdgeInsets.only(top: 20),
             width: double.infinity,
             height: 80,
-            color: Color.fromARGB(255, 0, 0, 0),
+            color: AppTheme.primary,
             child: Container(
               margin: const EdgeInsets.only(right: 60),
               child: Column(
@@ -35,7 +35,7 @@ class CustomDrawer extends StatelessWidget {
                     style: const TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.w600,
-                        color: Colors.white), 
+                        color: Colors.white),
                   ),
                   const SizedBox(
                     height: 10,
@@ -58,7 +58,7 @@ class CustomDrawer extends StatelessWidget {
           ListTile(
             title: const Text(
               'Home',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Colors.white),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
             ),
             leading: const Icon(
               Icons.home,
@@ -74,7 +74,7 @@ class CustomDrawer extends StatelessWidget {
           ListTile(
             title: const Text(
               'Balance',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Colors.white),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
             ),
             leading: const Icon(
               Icons.monetization_on,
@@ -90,7 +90,7 @@ class CustomDrawer extends StatelessWidget {
           ListTile(
             title: const Text(
               'Cash Flow',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Colors.white),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
             ),
             leading: const Icon(
               Icons.analytics_outlined,
@@ -106,7 +106,7 @@ class CustomDrawer extends StatelessWidget {
           ListTile(
             title: const Text(
               'Profile',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Colors.white),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
             ),
             leading: const Icon(
               Icons.person_outline,

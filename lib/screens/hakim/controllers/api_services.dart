@@ -3,13 +3,14 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 // String apiKey = "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";
-String apiKey = "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";
+String apiKey = "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";
 
 class ApiServices {
   static String baseUrl = "https://api.openai.com/v1/completions";
 
   static Map<String, String> header = {
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json; charset=UTF-8',
+    'Accept-Language': 'es-419',
     'Authorization': 'Bearer $apiKey',
   };
 
@@ -25,14 +26,19 @@ class ApiServices {
         "top_p": 1,
         "frequency_penalty": 0.0,
         "presence_penalty": 0.0,
-        "stop": [" Human:", " AI:"]
+        "stop": [" Human:", " AI:"],
       }),
     );
 
     if (res.statusCode == 200) {
-      var data = jsonDecode(
-        res.body.toString(),
-      );
+      var data = jsonDecode(res.body.toString()
+
+       //data = utf8.decode(resp.bodyBytes)
+       
+       );
+
+      
+
       var msg = data['choices'][0]['text'];
       return msg;
     } else {

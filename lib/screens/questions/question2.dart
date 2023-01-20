@@ -11,18 +11,39 @@ import 'package:keycloakflutter/screens/questions/widgets/small_text.dart';
 import 'package:keycloakflutter/widgets/bottom_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../hakim/controllers/tts.dart';
 import 'widgets/button_gradient.dart';
 
-class Question2Screen extends StatelessWidget {
+class Question2Screen extends StatefulWidget {
   static const String routeName = '/question-2';
   const Question2Screen({Key? key}) : super(key: key);
 
+  @override
+  State<Question2Screen> createState() => _Question2ScreenState();
+}
+
+class _Question2ScreenState extends State<Question2Screen> {
   void _storeOnboardInfo() async {
     print("Shared pref called");
     int isViewed = 0;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setInt('onBoard', isViewed);
     print(prefs.getInt('onBoard'));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    talk();
+  }
+
+  String msg =
+      "En esta pantalla, deberás responder el test de personalidad, esto nos ayuda a conocerte un poco más";
+
+  void talk() {
+    Future.delayed(const Duration(milliseconds: 500), () {
+      TextToSpeech.speak(msg);
+    });
   }
 
   @override
@@ -50,7 +71,7 @@ class Question2Screen extends StatelessWidget {
                 const SizedBox(
                   height: 60,
                 ),
-                
+
                 SizedBox(
                     child: Align(
                   alignment: Alignment.topCenter,
@@ -60,14 +81,11 @@ class Question2Screen extends StatelessWidget {
                     size: 30,
                   ),
                 )),
-               
-               IconButton(
+
+                IconButton(
                   icon: Image.asset('assets/image.png'),
                   iconSize: 80,
-                  
-                  onPressed: () {
-                    
-                  },
+                  onPressed: () {},
                 ),
 
                 const SizedBox(
@@ -78,7 +96,7 @@ class Question2Screen extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: SmallText(
                     text:
-                        '  Here select the phrase with which you feel best identified.',
+                        ' en esta pantalla, deberás responder el test de personalidad, esto nos ayuda a conocerte un poco más',
                     size: 20,
                     color: Colors.white,
                   ),
