@@ -13,16 +13,42 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'widgets/button_gradient.dart';
 
-class Question2Screen extends StatelessWidget {
-  static const String routeName = '/question-2';
+
+
+class Question2Screen extends StatefulWidget {
+   static const String routeName = '/question-1';
+  
   const Question2Screen({Key? key}) : super(key: key);
 
+  @override
+  State<Question2Screen> createState() => _Question2ScreenState();
+}
+
+class _Question2ScreenState extends State<Question2Screen> {
+
+
+  
+  
   void _storeOnboardInfo() async {
     print("Shared pref called");
     int isViewed = 0;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setInt('onBoard', isViewed);
     print(prefs.getInt('onBoard'));
+  }
+
+   @override
+  void initState() {
+    super.initState();
+    talk();
+  }
+
+  String msg = "Hola, soy hakim";
+
+  void talk() {
+    Future.delayed(const Duration(milliseconds: 500), () {
+      TextToSpeech.speak(msg);
+    });
   }
 
   @override
