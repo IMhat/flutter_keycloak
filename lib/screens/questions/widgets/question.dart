@@ -64,7 +64,7 @@ class _QuestionsState extends State<Questions> {
                       child: Container(
                         margin: const EdgeInsets.only(top: 20, bottom: 0),
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 15),
+                            horizontal: 20, vertical: 10),
                         width: 320,
                         // height: 250,
                         decoration: BoxDecoration(

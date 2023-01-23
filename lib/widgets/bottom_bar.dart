@@ -61,12 +61,12 @@ class _BottomBarState extends State<BottomBar> {
                   top: BorderSide(
                     color: _page == 0
                         ? GlobalVariables.selectedNavBarColor
-                        : GlobalVariables.backgroundColor,
+                        : Color.fromARGB(255, 231, 235, 239),
                     width: bottomNavBarBorderWidth,
                   ),
                 ),
               ),
-              child: const Icon(FontAwesomeIcons.houseChimneyCrack),
+              child: const Icon(Icons.home),
             ),
             label: '',
           ),

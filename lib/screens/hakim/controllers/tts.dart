@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter_tts/flutter_tts.dart';
 
 class TextToSpeech {
@@ -5,11 +7,15 @@ class TextToSpeech {
 
   static initTTS() {
     // tts.setLanguage("en-US");
-    tts.setLanguage("es-US");
+   
+    tts.setLanguage("es-MX");
     tts.setPitch(1.0);
+    tts.synthesizeToFile("Hello soy siri", Platform.isMacOS ? "tts.wav" : "tts.caf");
+    tts.setVoice({"name": "Siri", "locale": "es-MX"});
   }
 
   static speak(String text) async {
+    
     tts.setStartHandler(() {
       print('TTS IS STARTED');
     });

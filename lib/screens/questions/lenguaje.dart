@@ -28,7 +28,6 @@ class LenguajeScreen extends StatelessWidget {
   final List<PickerItem> paymentModes = [
     PickerItem("English", 'assets/English.jpg'),
     PickerItem("Spanish", 'assets/Spanish.png'),
-    PickerItem("French", 'assets/French.png'),
   ];
 
   @override

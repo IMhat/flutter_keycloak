@@ -11,7 +11,7 @@ Widget chatBubble({required chattext, required ChatMessageType? type}) {
         child: type == ChatMessageType.bot
             ? ClipOval(
                 child: Image.asset(
-                'assets/icon.jpg',
+                'assets/image.png',
                 colorBlendMode: BlendMode.clear,
               ))
             : const Icon(

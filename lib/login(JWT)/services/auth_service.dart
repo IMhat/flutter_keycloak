@@ -31,7 +31,7 @@ class AuthService {
         address: '',
         type: '',
         token: '',
-        cart: [],
+        //cart: [],
       );
 
       http.Response res = await http.post(
@@ -49,6 +49,11 @@ class AuthService {
           showSnackBar(
             context,
             'Account created! Login with the same credentials!',
+          );
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            LoginPage.routeName,
+            (route) => false,
           );
         },
       );

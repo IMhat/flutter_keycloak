@@ -7,6 +7,7 @@ import 'package:keycloakflutter/screens/questions/widgets/big_text.dart';
 import 'package:keycloakflutter/screens/questions/widgets/big_text_black.dart';
 import 'package:keycloakflutter/screens/questions/widgets/lenguague_button.dart';
 import 'package:keycloakflutter/screens/questions/widgets/small_text.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 import 'package:keycloakflutter/widgets/bottom_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,7 +23,7 @@ class OnboardingIaScreen extends StatefulWidget {
 }
 
 class _OnboardingIaScreenState extends State<OnboardingIaScreen> {
-// class OnboardingIaScreen extends StatelessWidget {
+  // class OnboardingIaScreen extends StatelessWidget {
   // static const String routeName = '/iaScreen';
   // const OnboardingIaScreen({Key? key}) : super(key: key);
 
@@ -40,7 +41,8 @@ class _OnboardingIaScreenState extends State<OnboardingIaScreen> {
     talk();
   }
 
-  String msg = "Hola, soy hakim";
+  String msg =
+      "hola soy hakim, y en cocrietor estamos para que tu empresa tenga éxito";
 
   void talk() {
     Future.delayed(const Duration(milliseconds: 500), () {
@@ -83,18 +85,29 @@ class _OnboardingIaScreenState extends State<OnboardingIaScreen> {
                   ),
                 )),
                 // ACA HAY QUE AÑADIR LA PELOTA BLANCA QUE HABLA Y TIENE EFECTOS--------------------------
+                const SizedBox(
+                  height: 80,
+                  width: 350,
+                ),
+
+                IconButton(
+                  icon: Image.asset('assets/image.png'),
+                  iconSize: 200,
+                  onPressed: () {},
+                ),
 
                 //---------------------------------------------------------------
 
                 const SizedBox(
-                  height: 400,
+                  height: 80,
                   width: 350,
                 ),
                 SizedBox(
                     child: Align(
                   alignment: Alignment.centerLeft,
                   child: SmallText(
-                    text: '  Hello user! my name is ...',
+                    text:
+                        '  hola soy hakim, y en cocrietor estamos para que tu empresa tenga éxito',
                     size: 20,
                     color: Colors.white,
                   ),
@@ -225,5 +238,6 @@ class _OnboardingIaScreenState extends State<OnboardingIaScreen> {
 }
 
 
+
 // Color(0xffFD0745),
-//                     Color(0xff6D49C2),
+//                     Color(0xff6D49C2)

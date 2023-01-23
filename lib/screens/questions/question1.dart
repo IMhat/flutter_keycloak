@@ -13,11 +13,12 @@ import 'package:keycloakflutter/screens/questions/widgets/small_text.dart';
 import 'package:keycloakflutter/widgets/bottom_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../hakim/controllers/tts.dart';
 import 'widgets/button_gradient.dart';
 
 class Question1Screen extends StatefulWidget {
-   static const String routeName = '/question-1';
-  
+  static const String routeName = '/question-1';
+
   const Question1Screen({Key? key}) : super(key: key);
 
   @override
@@ -25,10 +26,6 @@ class Question1Screen extends StatefulWidget {
 }
 
 class _Question1ScreenState extends State<Question1Screen> {
-
-
-  
-  
   void _storeOnboardInfo() async {
     print("Shared pref called");
     int isViewed = 0;
@@ -37,20 +34,20 @@ class _Question1ScreenState extends State<Question1Screen> {
     print(prefs.getInt('onBoard'));
   }
 
-   @override
+  @override
   void initState() {
     super.initState();
     talk();
   }
 
-  String msg = "Hola, soy hakim";
+  String msg =
+      " A continuación, selecciona una cuenta de servicios financieros, esto te ayudará a administrar mejor tus ingresos y egresos, como así también, mantenerte en contacto con tu servicio financiero. no usamos ningún tipo de información que hayas proporcionado ";
 
   void talk() {
     Future.delayed(const Duration(milliseconds: 500), () {
       TextToSpeech.speak(msg);
     });
   }
-  
 
   @override
   Widget build(BuildContext context) {
@@ -77,6 +74,7 @@ class _Question1ScreenState extends State<Question1Screen> {
                 const SizedBox(
                   height: 60,
                 ),
+
                 SizedBox(
                     child: Align(
                   alignment: Alignment.topCenter,
@@ -86,14 +84,22 @@ class _Question1ScreenState extends State<Question1Screen> {
                     size: 30,
                   ),
                 )),
+                //aca va la pelota que habla
+
+                IconButton(
+                  icon: Image.asset('assets/image.png'),
+                  iconSize: 80,
+                  onPressed: () {},
+                ),
                 const SizedBox(
-                  height: 100,
+                  height: 20,
                 ),
                 SizedBox(
                     child: Align(
                   alignment: Alignment.centerLeft,
                   child: SmallText(
-                    text: '  Here ...',
+                    text:
+                        '  A continuación, selecciona una cuenta de servicios financieros, esto te ayudará a administrar mejor tus ingresos y egresos, como así también, mantenerte en contacto con tu servicio financiero. no usamos ningún tipo de información que hayas proporcionado ',
                     size: 20,
                     color: Colors.white,
                   ),
@@ -122,7 +128,7 @@ class _Question1ScreenState extends State<Question1Screen> {
 
                 //----------------------------------------------------------------------
                 const SizedBox(
-                  height: 70,
+                  height: 50,
                   width: 350,
                 ),
                 ButtonGradient(

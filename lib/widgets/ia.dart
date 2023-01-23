@@ -11,7 +11,7 @@ class IaIcon extends StatelessWidget {
       ),
       child: const CircleAvatar(
         radius: 25,
-        backgroundImage: AssetImage('assets/iaprueba.gif'),
+        backgroundImage: AssetImage('assets/image.png'),
       ),
     );
   }

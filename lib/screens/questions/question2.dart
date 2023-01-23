@@ -11,13 +11,11 @@ import 'package:keycloakflutter/screens/questions/widgets/small_text.dart';
 import 'package:keycloakflutter/widgets/bottom_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../hakim/controllers/tts.dart';
 import 'widgets/button_gradient.dart';
 
-
-
 class Question2Screen extends StatefulWidget {
-   static const String routeName = '/question-1';
-  
+  static const String routeName = '/question-2';
   const Question2Screen({Key? key}) : super(key: key);
 
   @override
@@ -25,10 +23,6 @@ class Question2Screen extends StatefulWidget {
 }
 
 class _Question2ScreenState extends State<Question2Screen> {
-
-
-  
-  
   void _storeOnboardInfo() async {
     print("Shared pref called");
     int isViewed = 0;
@@ -37,13 +31,14 @@ class _Question2ScreenState extends State<Question2Screen> {
     print(prefs.getInt('onBoard'));
   }
 
-   @override
+  @override
   void initState() {
     super.initState();
     talk();
   }
 
-  String msg = "Hola, soy hakim";
+  String msg =
+      "En esta pantalla, deberás responder el test de personalidad, esto nos ayuda a conocerte un poco más";
 
   void talk() {
     Future.delayed(const Duration(milliseconds: 500), () {
@@ -76,6 +71,7 @@ class _Question2ScreenState extends State<Question2Screen> {
                 const SizedBox(
                   height: 60,
                 ),
+
                 SizedBox(
                     child: Align(
                   alignment: Alignment.topCenter,
@@ -85,15 +81,22 @@ class _Question2ScreenState extends State<Question2Screen> {
                     size: 30,
                   ),
                 )),
+
+                IconButton(
+                  icon: Image.asset('assets/image.png'),
+                  iconSize: 80,
+                  onPressed: () {},
+                ),
+
                 const SizedBox(
-                  height: 100,
+                  height: 20,
                 ),
                 SizedBox(
                     child: Align(
-                  alignment: Alignment.centerLeft,
+                  alignment: Alignment.center,
                   child: SmallText(
                     text:
-                        '  Here select the phrase with which you feel best identified.',
+                        ' en esta pantalla, deberás responder el test de personalidad, esto nos ayuda a conocerte un poco más',
                     size: 20,
                     color: Colors.white,
                   ),
@@ -119,7 +122,7 @@ class _Question2ScreenState extends State<Question2Screen> {
 
                 //----------------------------------------------------------------------
                 const SizedBox(
-                  height: 50,
+                  height: 40,
                   width: 350,
                 ),
                 ButtonGradient(
