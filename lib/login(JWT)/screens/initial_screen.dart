@@ -417,9 +417,35 @@ class _LoginPageState extends State<LoginPage> {
           const SizedBox(
             height: 15,
           ),
-          CustomTextField(
+          // CustomTextField(
+
+          //   controller: _passwordController,
+          //   hintText: 'Enter Password',
+          // ),
+
+          TextFormField(
+            obscureText: true,
             controller: _passwordController,
-            hintText: 'Enter Password',
+            decoration: InputDecoration(
+              hintText: 'Enter Password',
+              border: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.black38,
+                ),
+              ),
+              enabledBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.black38,
+                ),
+              ),
+            ),
+            // validator: (val) {
+            //   if (val == null || val.isEmpty) {
+            //     return 'Please enter $hintText';
+            //   }
+            //   return null;
+            // },
+            // maxLines: maxLines,
           ),
           const SizedBox(
             height: 10,

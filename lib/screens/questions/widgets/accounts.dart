@@ -85,7 +85,7 @@ class _AccountsState extends State<Accounts> {
                           child: Row(
                             children: [
                               Container(
-                                height: 75,
+                                height: 55,
                                 child: Image.network(accounts![index].image,
                                     fit: BoxFit.cover, width: 75),
                               ),

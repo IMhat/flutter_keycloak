@@ -3,18 +3,29 @@ import 'package:keycloakflutter/login(JWT)/services/auth_service.dart';
 import 'package:keycloakflutter/theme/app_theme.dart';
 import 'package:keycloakflutter/widgets/switch_dark_mode.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/user_provider.dart';
 
 // import 'package:provider/provider.dart';
 
 // import '../screens/login/service/auth_service2.dart';
 
-class CustomDrawer extends StatelessWidget {
+class CustomDrawer extends StatefulWidget {
   const CustomDrawer({Key? key}) : super(key: key);
 
+  @override
+  State<CustomDrawer> createState() => _CustomDrawerState();
+}
+
+class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
     // final authService = Provider.of<AuthService>(context, listen: false);
     final AuthService authService = AuthService();
+
+    final user = context.watch<UserProvider>().user;
+
     return Scaffold(
       backgroundColor: AppTheme.primary,
       body: ListView(
@@ -30,10 +41,10 @@ class CustomDrawer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Hi Guest',
-                    //AuthService.instance.profile!.name,
+                    // 'Hi Guest',
+                    user.name,
                     style: const TextStyle(
-                        fontSize: 26,
+                        fontSize: 35,
                         fontWeight: FontWeight.w600,
                         color: Colors.white),
                   ),
@@ -65,10 +76,10 @@ class CustomDrawer extends StatelessWidget {
               color: Colors.white,
             ),
             onTap: () {
-              Navigator.pushNamed(
-                context,
-                'Home',
-              );
+              // Navigator.pushNamed(
+              //   context,
+              //   'actual-home',
+              // );
             },
           ),
           ListTile(
@@ -81,10 +92,10 @@ class CustomDrawer extends StatelessWidget {
               color: Colors.white,
             ),
             onTap: () {
-              Navigator.pushNamed(
-                context,
-                '',
-              );
+              // Navigator.pushNamed(
+              //   context,
+              //   '',
+              // );
             },
           ),
           ListTile(
@@ -97,10 +108,10 @@ class CustomDrawer extends StatelessWidget {
               color: Colors.white,
             ),
             onTap: () {
-              Navigator.pushNamed(
-                context,
-                '',
-              );
+              // Navigator.pushNamed(
+              //   context,
+              //   '',
+              // );
             },
           ),
           ListTile(
@@ -113,10 +124,10 @@ class CustomDrawer extends StatelessWidget {
               color: Colors.white,
             ),
             onTap: () {
-              Navigator.pushNamed(
-                context,
-                '',
-              );
+              // Navigator.pushNamed(
+              //   context,
+              //   '',
+              // );
             },
           ),
           const SizedBox(

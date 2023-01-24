@@ -48,6 +48,10 @@ dependencies:
   speech_to_text: ^6.1.1
   
   flutter_tts: ^3.6.3
+
+  webview_flutter: ^4.0.2
+  another_quickbooks: ^0.0.5
+  persistent_bottom_nav_bar: ^5.0.2
   
 
 dev_dependencies:

@@ -21,11 +21,11 @@ class Question1Screen extends StatefulWidget {
 
   const Question1Screen({Key? key}) : super(key: key);
 
-@override
+  @override
   State<Question1Screen> createState() => _Question1ScreenState();
 }
-class _Question1ScreenState extends State<Question1Screen> {
 
+class _Question1ScreenState extends State<Question1Screen> {
   void _storeOnboardInfo() async {
     print("Shared pref called");
     int isViewed = 0;
@@ -33,13 +33,15 @@ class _Question1ScreenState extends State<Question1Screen> {
     await prefs.setInt('onBoard', isViewed);
     print(prefs.getInt('onBoard'));
   }
-@override
+
+  @override
   void initState() {
     super.initState();
     talk();
   }
 
-  String msg = " A continuación, selecciona una cuenta de servicios financieros, esto te ayudará a administrar mejor tus ingresos y egresos, como así también, mantenerte en contacto con tu servicio financiero. no usamos ningún tipo de información que hayas proporcionado ";
+  String msg =
+      " A continuación, selecciona una cuenta de servicios financieros, esto te ayudará a administrar mejor tus ingresos y egresos, como así también, mantenerte en contacto con tu servicio financiero. no usamos ningún tipo de información que hayas proporcionado ";
 
   void talk() {
     Future.delayed(const Duration(milliseconds: 500), () {
@@ -72,35 +74,26 @@ class _Question1ScreenState extends State<Question1Screen> {
                 const SizedBox(
                   height: 60,
                 ),
-                
-                
-                SizedBox(
-                    child: Align(
-                  alignment: Alignment.topCenter,
-                  child: BigText(
-                    text: '  TheCocreator',
-                    color: Colors.white,
-                    size: 30,
-                  ),
-                )),
+
+            
+                   Image.asset('assets/logo2.png'),
+                  
                 //aca va la pelota que habla
 
-IconButton(
+                IconButton(
                   icon: Image.asset('assets/image.png'),
                   iconSize: 80,
-                  
-                  onPressed: () {
-                    
-                  },
+                  onPressed: () {},
                 ),
                 const SizedBox(
-                  height: 100,
+                  height: 20,
                 ),
                 SizedBox(
                     child: Align(
                   alignment: Alignment.centerLeft,
                   child: SmallText(
-                    text: '  A continuación, selecciona una cuenta de servicios financieros, esto te ayudará a administrar mejor tus ingresos y egresos, como así también, mantenerte en contacto con tu servicio financiero. no usamos ningún tipo de información que hayas proporcionado ',
+                    text:
+                        '  A continuación, selecciona una cuenta de servicios financieros, esto te ayudará a administrar mejor tus ingresos y egresos, como así también, mantenerte en contacto con tu servicio financiero. no usamos ningún tipo de información que hayas proporcionado ',
                     size: 20,
                     color: Colors.white,
                   ),
@@ -129,7 +122,7 @@ IconButton(
 
                 //----------------------------------------------------------------------
                 const SizedBox(
-                  height: 70,
+                  height: 50,
                   width: 350,
                 ),
                 ButtonGradient(

@@ -72,15 +72,9 @@ class _Question2ScreenState extends State<Question2Screen> {
                   height: 60,
                 ),
 
-                SizedBox(
-                    child: Align(
-                  alignment: Alignment.topCenter,
-                  child: BigText(
-                    text: '  TheCocreator',
-                    color: Colors.white,
-                    size: 30,
-                  ),
-                )),
+               
+                 Image.asset('assets/logo2.png'),
+                  
 
                 IconButton(
                   icon: Image.asset('assets/image.png'),
@@ -89,11 +83,11 @@ class _Question2ScreenState extends State<Question2Screen> {
                 ),
 
                 const SizedBox(
-                  height: 100,
+                  height: 20,
                 ),
                 SizedBox(
                     child: Align(
-                  alignment: Alignment.centerLeft,
+                  alignment: Alignment.center,
                   child: SmallText(
                     text:
                         ' en esta pantalla, deberás responder el test de personalidad, esto nos ayuda a conocerte un poco más',
@@ -122,7 +116,7 @@ class _Question2ScreenState extends State<Question2Screen> {
 
                 //----------------------------------------------------------------------
                 const SizedBox(
-                  height: 50,
+                  height: 40,
                   width: 350,
                 ),
                 ButtonGradient(

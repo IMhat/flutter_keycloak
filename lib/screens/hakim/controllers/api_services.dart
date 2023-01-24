@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 // String apiKey = "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";
-String apiKey = "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";
+String apiKey = "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";
 
 class ApiServices {
   static String baseUrl = "https://api.openai.com/v1/completions";
@@ -33,11 +33,9 @@ class ApiServices {
     if (res.statusCode == 200) {
       var data = jsonDecode(res.body.toString()
 
-       //data = utf8.decode(resp.bodyBytes)
-       
-       );
+          //data = utf8.decode(resp.bodyBytes)
 
-      
+          );
 
       var msg = data['choices'][0]['text'];
       return msg;

@@ -51,17 +51,3 @@ For successfully redirect back to application after login we need to set some pr
     </dict>
 </array>
 ```
-list de voices
-
-List<String> voices = await tts.getVoices();
-// para iniciar speak de hakim
-
-void  _speak() async{
-    var result = await flutterTts.speak("Hello World");
-    if (result == 1) setState(() => ttsState = TtsState.playing);
-}
-@override
-void initState(){
-super.initSate();
-_speak();
-}

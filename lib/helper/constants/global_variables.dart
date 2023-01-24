@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-// String uri = 'https://server-flutterm.herokuapp.com';
-String uri = 'http://192.168.1.10:3000';
+ String uri = 'https://the-co-creator-server.vercel.app';
+// String uri = 'http://192.168.1.10:3000';
 
 class GlobalVariables {
   // COLORS

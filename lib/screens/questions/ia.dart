@@ -17,7 +17,7 @@ import 'widgets/button_gradient.dart';
 class OnboardingIaScreen extends StatefulWidget {
   static const String routeName = '/iaScreen';
   const OnboardingIaScreen({Key? key}) : super(key: key);
- 
+
   @override
   State<OnboardingIaScreen> createState() => _OnboardingIaScreenState();
 }
@@ -35,13 +35,14 @@ class _OnboardingIaScreenState extends State<OnboardingIaScreen> {
     print(prefs.getInt('onBoard'));
   }
 
-@override
+  @override
   void initState() {
     super.initState();
     talk();
   }
 
-  String msg = "hola soy hakim, y en cocrietor estamos para que tu empresa tenga éxito";
+  String msg =
+      "hola soy hakim, y en cocrietor estamos para que tu empresa tenga éxito";
 
   void talk() {
     Future.delayed(const Duration(milliseconds: 500), () {
@@ -74,16 +75,16 @@ class _OnboardingIaScreenState extends State<OnboardingIaScreen> {
                 const SizedBox(
                   height: 80,
                 ),
-                SizedBox(
-                    child: Align(
-                  alignment: Alignment.topCenter,
-                  child: BigText(
-                    text: '  TheCocreator',
-                    color: Colors.white,
-                    size: 30,
-                  ),
-                )),
+                IconButton(
+                  icon: Image.asset('assets/logo2.png'),
+                  iconSize: 200,
+                  onPressed: () {},
+                ),
                 // ACA HAY QUE AÑADIR LA PELOTA BLANCA QUE HABLA Y TIENE EFECTOS--------------------------
+                const SizedBox(
+                  height: 80,
+                  width: 350,
+                ),
 
                 IconButton(
                   icon: Image.asset('assets/image.png'),
@@ -94,14 +95,15 @@ class _OnboardingIaScreenState extends State<OnboardingIaScreen> {
                 //---------------------------------------------------------------
 
                 const SizedBox(
-                  height: 400,
+                  height: 80,
                   width: 350,
                 ),
                 SizedBox(
                     child: Align(
                   alignment: Alignment.centerLeft,
                   child: SmallText(
-                    text: '  hola soy hakim, y en cocrietor estamos para que tu empresa tenga éxito',
+                    text:
+                        '  hola soy hakim, y en cocrietor estamos para que tu empresa tenga éxito',
                     size: 20,
                     color: Colors.white,
                   ),

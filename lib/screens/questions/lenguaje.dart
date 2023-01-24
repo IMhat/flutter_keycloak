@@ -67,15 +67,9 @@ class LenguajeScreen extends StatelessWidget {
               height: 35,
               width: 350,
             ),
-            SizedBox(
-                child: Align(
-              alignment: Alignment.centerLeft,
-              child: BigText(
-                text: '  TheCocreator',
-                color: Colors.black,
-                size: 50,
-              ),
-            )),
+
+            Image.asset('assets/logo.png'),
+                  
             const SizedBox(
               height: 100,
               width: 350,
