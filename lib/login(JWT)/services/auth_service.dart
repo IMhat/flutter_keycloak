@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
@@ -8,6 +9,7 @@ import 'package:keycloakflutter/helper/constants/global_variables.dart';
 import 'package:keycloakflutter/helper/constants/utils.dart';
 import 'package:keycloakflutter/login(JWT)/screens/initial_screen.dart';
 import 'package:keycloakflutter/models/user.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -50,10 +52,18 @@ class AuthService {
             context,
             'Account created! Login with the same credentials!',
           );
-          Navigator.pushNamedAndRemoveUntil(
-            context,
-            LoginPage.routeName,
-            (route) => false,
+          // Navigator.pushNamedAndRemoveUntil(
+          //   context,
+          //   LoginPage.routeName,
+          //   (route) => false,
+          // );
+          Navigator.of(context).pushAndRemoveUntil(
+            CupertinoPageRoute(
+              builder: (BuildContext context) {
+                return LoginPage();
+              },
+            ),
+            (_) => false,
           );
         },
       );
@@ -143,10 +153,16 @@ class AuthService {
       SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
       await sharedPreferences.setString('x-auth-token', '');
-      Navigator.pushNamedAndRemoveUntil(
+      // Navigator.pushNamedAndRemoveUntil(
+      //   context,
+      //   LoginPage.routeName,
+      //   (route) => false,
+      // );
+      PersistentNavBarNavigator.pushNewScreen(
         context,
-        LoginPage.routeName,
-        (route) => false,
+        screen: LoginPage(),
+        withNavBar: false, // OPTIONAL VALUE. True by default.
+        pageTransitionAnimation: PageTransitionAnimation.cupertino,
       );
     } catch (e) {
       showSnackBar(context, e.toString());
