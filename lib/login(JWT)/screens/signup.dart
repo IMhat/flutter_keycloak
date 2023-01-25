@@ -212,11 +212,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 10),
       alignment: Alignment.centerLeft,
-      child: Text('TheCoCreator',
-          style: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.w500,
-              color: Color.fromARGB(255, 0, 0, 0))),
+      child: Image.asset('assets/logo.png'),
     );
   }
 

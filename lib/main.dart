@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:keycloakflutter/providers/user_provider.dart';
 import 'package:keycloakflutter/router.dart';
 import 'package:keycloakflutter/router/app_routes.dart';
@@ -64,6 +65,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     final currenTheme = Provider.of<ThemeChanger>(context).currentTheme;
     return MaterialApp(
+      theme: ThemeData(textTheme: GoogleFonts.latoTextTheme(Theme.of(context).textTheme)),
         builder: (context, child) => ResponsiveWrapper.builder(
               child,
               maxWidth: 1200,

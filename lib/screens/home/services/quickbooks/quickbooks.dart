@@ -1,9 +1,18 @@
 import 'package:another_quickbooks/another_quickbooks.dart';
 import 'package:another_quickbooks/quickbook_models.dart';
 import 'package:keycloakflutter/screens/home/home_screen.dart';
+
+import 'package:keycloakflutter/screens/home/services/quickbooks/service/quickbooks_service.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../helper/common/widgets/loader.dart';
+
+// Import for Android features.
+import 'package:webview_flutter_android/webview_flutter_android.dart';
+// Import for iOS features.
+import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
 class QuickbooksScreen extends StatefulWidget {
   static const String routeName = '/home';
@@ -35,9 +44,21 @@ class _QuickbooksScreenState extends State<QuickbooksScreen> {
   String authUrl = "";
   TokenResponse? token;
 
+  // temporary list
+  // List<CashFlow>? cash;
+
+  // final QuickbookService quickbookServices = QuickbookService();
+
+  // void fetchWallet() async {
+  //   cash = await quickbookServices.fetchCashFlow(context: context);
+  //   setState(() {});
+  // }
+
   void initState() {
     print("Init Called");
     initializeQuickbooks();
+
+    //fetchWallet();
   }
 
   ///
@@ -67,77 +88,95 @@ class _QuickbooksScreenState extends State<QuickbooksScreen> {
     setState(() {});
   }
 
-  Future<void> requestPaymentClient() async {
-    quickClient!.getPaymentClient();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(widget.title),
-      // ),
-      body: Center(
-        child: token == null
-            ? WebViewWidget(
-                controller: controller = WebViewController()
-                  ..setJavaScriptMode(JavaScriptMode.unrestricted)
-                  ..setBackgroundColor(const Color(0x00000000))
-                  ..setNavigationDelegate(
-                    NavigationDelegate(
-                      onProgress: (int progress) {
-                        print('WebView is loading (progress : $progress%)');
-                      },
-                      onPageStarted: (String url) {
-                        print('Page started loading: $url');
-                      },
-                      onPageFinished: (String url) {
-                        print('Page finished loading: $url');
-                      },
-                      onWebResourceError: (WebResourceError error) {},
-                      onNavigationRequest: (NavigationRequest request) {
-                        if (request.url.startsWith(redirectUrl)) {
-                          print('blocking navigation to $request}');
-                          var url = Uri.parse(request.url);
-                          String code = url.queryParameters["code"]!;
-                          String realmId = url.queryParameters['realmId']!;
-                          // Request access token
-                          requestAccessToken(code, realmId);
+        // appBar: AppBar(
+        //   title: Text(widget.title),
+        // ),
+        body: Container(
+      child: token == null
+          // ? WebViewWidget(controller: controller)
+          ? WebViewWidget(
+              controller: controller = WebViewController()
+                ..setJavaScriptMode(JavaScriptMode.unrestricted)
+                ..setBackgroundColor(const Color(0x00000000))
+                ..setNavigationDelegate(
+                  NavigationDelegate(
+                    onProgress: (int progress) {
+                      print('WebView is loading (progress : $progress%)');
+                      print(authUrl);
+                      const Loader();
+                    },
+                    onPageStarted: (String url) {
+                      print('Page started loading: $url');
+                      const Loader();
+                    },
+                    onPageFinished: (String url) {
+                      print('Page finished loading: $url');
+                      const Loader();
+                    },
+                    onWebResourceError: (WebResourceError error) {
+                      Loader();
+                    },
+                    onNavigationRequest: (NavigationRequest request) {
+                      if (request.url.startsWith(redirectUrl)) {
+                        print('blocking navigation to $request}');
+                        var url = Uri.parse(request.url);
+                        String code = url.queryParameters["code"]!;
+                        String realmId = url.queryParameters['realmId']!;
+                        // Request access token
+                        requestAccessToken(code, realmId);
 
-                          return NavigationDecision.prevent;
-                        }
-                        print('allowing navigation to $request');
-                        return NavigationDecision.navigate;
-                      },
-                    ),
-                  )
-                  ..loadRequest(Uri.parse(authUrl)))
-            : Container(
-                child: Column(children: [
-                  Text("Authenticated with Quickbooks"),
-                  SizedBox(
-                    child: ElevatedButton(
-                      child: const Text("Desconect"),
-                      onPressed: () => PersistentNavBarNavigator.pushNewScreen(
-                          context,
-                          screen: HomeScreen()),
-                    ),
+                        return NavigationDecision.prevent;
+                      }
+                      print('allowing navigation to $request');
+                      return NavigationDecision.navigate;
+                    },
                   ),
-                ]),
-              ),
-      ),
-      floatingActionButton: token != null
-          ? FloatingActionButton(
-              onPressed: () {
-                // printQuickbooksReport();
-                //printQuickbooksReportBle();
-                print(token);
-                print(realmId);
-              },
-              tooltip: 'Print',
-              child: const Icon(Icons.print),
-            )
-          : null, // This trailing comma makes auto-formatting nicer for build methods.
-    );
+                )
+                ..loadRequest(Uri.parse(authUrl)))
+          : Container(
+              child: Stack(children: <Widget>[
+              Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: SingleChildScrollView(
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                        const SizedBox(height: 100),
+                        const SizedBox(
+                          child: Text(
+                            'Authenticated with quickbooks',
+                            style: TextStyle(
+                                fontSize: 35,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 27, 27, 27)),
+                          ),
+                        ),
+                        const SizedBox(
+                          child: Text(
+                            'Token de acceso, del usuario para consultar info a quickbooks',
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 27, 27, 27)),
+                          ),
+                        ),
+                        const SizedBox(height: 100),
+                        SizedBox(child: Text(token.toString())),
+                        const SizedBox(height: 10),
+                        SizedBox(
+                          child: ElevatedButton(
+                            child: const Text("Desconect"),
+                            onPressed: () =>
+                                PersistentNavBarNavigator.pushNewScreen(context,
+                                    screen: HomeScreen()),
+                          ),
+                        ),
+                      ]))),
+            ])),
+    ));
   }
 }

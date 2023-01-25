@@ -33,167 +33,187 @@ class LenguajeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Align(
-        alignment: Alignment.centerLeft,
-        child: Column(
-          children: [
-            // const SizedBox(
-            //   height: 40,
-            // ),
-            // SizedBox(
-            //   height: 330,
-            //   width: 350,
-            //   child: Image.asset(
-            //     'assets/question1.gif',
-            //     fit: BoxFit.contain,
-            //   ),
-            // ),
+      // child: Align(
+      //alignment: Alignment.centerLeft,
 
-            const SizedBox(
-              height: 175,
-              width: 350,
-              //child: Text('Welcome to'),
-            ),
-            SizedBox(
-                child: Align(
-              alignment: Alignment.centerLeft,
-              child: BigTextBlack(
-                text: '  Welcome to',
-                size: 45,
-                color: Colors.black,
-              ),
-            )),
-            const SizedBox(
-              height: 35,
-              width: 350,
-            ),
-            SizedBox(
-                child: Align(
-              alignment: Alignment.centerLeft,
-              child: BigText(
-                text: '  TheCocreator',
-                color: Colors.black,
-                size: 50,
-              ),
-            )),
-            const SizedBox(
-              height: 100,
-              width: 350,
-            ),
-            SizedBox(
-                child: Align(
-              alignment: Alignment.centerLeft,
-              child: SmallText(
-                text: '    Set up your lenguague',
-              ),
-            )),
-            const SizedBox(
-              height: 20,
-            ),
-            Expanded(
-              child: PickerWidget(pickerItems: paymentModes),
-            ),
+      child: Stack(
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 0),
+            // child: Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                //child: Column(
+                //children: [
+                // const SizedBox(
+                //   height: 40,
+                // ),
+                // SizedBox(
+                //   height: 330,
+                //   width: 350,
+                //   child: Image.asset(
+                //     'assets/question1.gif',
+                //     fit: BoxFit.contain,
+                //   ),
+                // ),
 
-            // LenguagueButton(
-            //   imagen: Image.asset(
-            //     'assets/English.jpg',
-            //     fit: BoxFit.cover,
-            //     width: 75,
-            //   ),
-            //   text: 'English',
-            //   onPressed: (() {
-            //     // Navigator.pushNamed(
-            //     //   context,
-            //     //   'question-2',
-            //     // );
-            //   }),
-            // ),
-            // const SizedBox(
-            //   height: 20,
-            // ),
-            // LenguagueButton(
-            //   imagen: Image.asset(
-            //     'assets/Spanish.png',
-            //     fit: BoxFit.cover,
-            //     width: 76,
-            //   ),
-            //   text: 'Spanish',
-            //   onPressed: (() {
-            //     // Navigator.pushNamed(
-            //     //   context,
-            //     //   '/question1',
-            //     // );
-            //   }),
-            // ),
-            // const SizedBox(
-            //   height: 20,
-            // ),
-            // LenguagueButton(
-            //   imagen: Image.asset(
-            //     'assets/French.png',
-            //     fit: BoxFit.cover,
-            //     width: 75,
-            //   ),
-            //   text: 'French',
-            //   onPressed: (() {
-            //     // Navigator.pushNamed(
-            //     //   context,
-            //     //   '/question1',
-            //     // );
-            //   }),
-            // ),
-            const SizedBox(
-              height: 15,
+                const SizedBox(
+                  height: 175,
+                  width: 350,
+                  //child: Text('Welcome to'),
+                ),
+                SizedBox(
+                    child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: BigTextBlack(
+                    text: '  Welcome to',
+                    size: 45,
+                    color: Colors.black,
+                  ),
+                )),
+                const SizedBox(
+                  height: 0,
+                  width: 350,
+                ),
+
+                Container(
+                    height: 150,
+                    width: 550,
+                    child: IconButton(
+                      icon: Image.asset('assets/logo.png'),
+                      iconSize: 600,
+                      onPressed: () {},
+                    )),
+
+                const SizedBox(
+                  height: 30,
+                  width: 350,
+                ),
+                SizedBox(
+                    child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: SmallText(
+                    text: '    Set up your lenguague',
+                  ),
+                )),
+                const SizedBox(
+                  height: 5,
+                ),
+                // SizedBox(
+                //   height: 250,
+                //   child: Expanded(
+                //     child: PickerWidget(pickerItems: paymentModes),
+                //   ),
+                // ),
+                Expanded(
+                  child: PickerWidget(pickerItems: paymentModes),
+                ),
+
+                // LenguagueButton(
+                //   imagen: Image.asset(
+                //     'assets/English.jpg',
+                //     fit: BoxFit.cover,
+                //     width: 75,
+                //   ),
+                //   text: 'English',
+                //   onPressed: (() {
+                //     // Navigator.pushNamed(
+                //     //   context,
+                //     //   'question-2',
+                //     // );
+                //   }),
+                // ),
+                // const SizedBox(
+                //   height: 20,
+                // ),
+                // LenguagueButton(
+                //   imagen: Image.asset(
+                //     'assets/Spanish.png',
+                //     fit: BoxFit.cover,
+                //     width: 76,
+                //   ),
+                //   text: 'Spanish',
+                //   onPressed: (() {
+                //     // Navigator.pushNamed(
+                //     //   context,
+                //     //   '/question1',
+                //     // );
+                //   }),
+                // ),
+                // const SizedBox(
+                //   height: 20,
+                // ),
+                // LenguagueButton(
+                //   imagen: Image.asset(
+                //     'assets/French.png',
+                //     fit: BoxFit.cover,
+                //     width: 75,
+                //   ),
+                //   text: 'French',
+                //   onPressed: (() {
+                //     // Navigator.pushNamed(
+                //     //   context,
+                //     //   '/question1',
+                //     // );
+                //   }),
+                // ),
+                // const SizedBox(
+                //   height: 50,
+                // ),
+                // const SizedBox(
+                //   height: 20,
+                // ),
+                indicatorQuestion(),
+                const SizedBox(
+                  height: 40,
+                ),
+                ButtonGradient(
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                        begin: AlignmentDirectional.topCenter,
+                        end: Alignment.bottomCenter,
+                        stops: [
+                          0.2,
+                          0.5,
+                          10
+                        ],
+                        colors: [
+                          (Color.fromARGB(255, 0, 0, 0)),
+                          Color.fromARGB(255, 0, 0, 0),
+                          Color.fromARGB(255, 0, 0, 0)
+                        ]),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  onTap: () {
+                    // _storeOnboardInfo();
+                    Navigator.pushNamed(
+                      context,
+                      '/iaScreen',
+                    );
+                    // context.go('/OnboardingIa');
+                  },
+                  text: 'Continuos',
+                ),
+                // TextButton(
+                //   onPressed: () {
+                //     //_storeOnboardInfo();
+                //     Navigator.pushReplacement(context,
+                //         MaterialPageRoute(builder: (context) => BottomBar()));
+                //   },
+                //   child: Text(
+                //     "Skip",
+                //     style: TextStyle(
+                //       color: kwhite,
+                //     ),
+                //   ),
+                // ),
+              ],
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            indicatorQuestion(),
-            const SizedBox(
-              height: 40,
-            ),
-            ButtonGradient(
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                    begin: AlignmentDirectional.topCenter,
-                    end: Alignment.bottomCenter,
-                    stops: [
-                      0.2,
-                      0.5,
-                      10
-                    ],
-                    colors: [
-                      (Color.fromARGB(255, 0, 0, 0)),
-                      Color.fromARGB(255, 0, 0, 0),
-                      Color.fromARGB(255, 0, 0, 0)
-                    ]),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              onTap: () {
-                // _storeOnboardInfo();
-                Navigator.pushNamed(
-                  context,
-                  '/iaScreen',
-                );
-                // context.go('/OnboardingIa');
-              },
-              text: 'Continuos',
-            ),
-            // TextButton(
-            //   onPressed: () {
-            //     //_storeOnboardInfo();
-            //     Navigator.pushReplacement(context,
-            //         MaterialPageRoute(builder: (context) => BottomBar()));
-            //   },
-            //   child: Text(
-            //     "Skip",
-            //     style: TextStyle(
-            //       color: kwhite,
-            //     ),
-            //   ),
-            // ),
-          ],
-        ),
+            //),
+          ),
+        ],
       ),
     );
   }
