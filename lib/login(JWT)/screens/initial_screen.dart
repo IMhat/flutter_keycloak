@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:keycloakflutter/login(JWT)/screens/signup.dart';
 import 'package:keycloakflutter/login(JWT)/services/auth_service.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import '../../helper/common/widgets/custom_textField.dart';
 import '../widgets/bezierContainer.dart';
 // import 'package:flutter_login_signup/src/signup.dart';
@@ -324,26 +324,10 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _title() {
-    return RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(
-          text: 'The',
-          style: TextStyle(
-              fontSize: 50,
-              fontWeight: FontWeight.w700,
-              color: Color.fromARGB(255, 0, 0, 0)),
-          children: [
-            TextSpan(
-              text: 'Co',
-              style:
-                  TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 50),
-            ),
-            TextSpan(
-              text: 'Creator',
-              style:
-                  TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 50),
-            ),
-          ]),
+    return IconButton(
+      icon: Image.asset('assets/logo.png'),
+      iconSize: 300,
+      onPressed: () {},
     );
   }
 
@@ -390,13 +374,11 @@ class _LoginPageState extends State<LoginPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         key: _signInFormKey,
         children: <Widget>[
-          Text(
-            'Email',
-            style: TextStyle(
-                fontWeight: FontWeight.w400,
+          Text('Email',
+              style: GoogleFonts.poppins(
+                color: Color.fromARGB(255, 151, 151, 151),
                 fontSize: 20,
-                color: Color.fromARGB(255, 151, 151, 151)),
-          ),
+              )),
           const SizedBox(
             height: 15,
           ),

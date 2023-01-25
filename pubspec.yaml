@@ -27,36 +27,30 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  another_quickbooks: ^0.0.5
+  avatar_glow: ^2.0.2
+  cupertino_icons: ^1.0.2
+  expandable_text: ^2.3.0
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-  go_router: ^3.1.1
-  url_strategy: 
   flutter_appauth: ^4.0.1
-  font_awesome_flutter: ^10.2.1
-  http: ^0.13.5
-  provider: ^6.0.4
   flutter_secure_storage: ^5.0.2
-  json_serializable: ^6.2.0
-  shared_preferences: ^2.0.5
-  responsive_framework: ^0.2.0
-  google_fonts:
-  expandable_text: ^2.3.0
-
-  
-  avatar_glow: ^2.0.2
-  speech_to_text: ^6.1.1
-  
   flutter_tts: ^3.6.3
-
-  webview_flutter: ^4.0.2
-  another_quickbooks: ^0.0.5
+  font_awesome_flutter: ^10.2.1
+  go_router: ^3.1.1
+  google_fonts: ^3.0.1
+  http: ^0.13.5
+  json_serializable: ^6.2.0
   persistent_bottom_nav_bar: ^5.0.2
-  
+  provider: ^6.0.4
+  responsive_framework: ^0.2.0
+  shared_preferences: ^2.0.5
+  speech_to_text: ^6.1.1
+  url_strategy: null
+  webview_flutter: ^4.0.2
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
+  build_runner: ^2.1.11
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -64,11 +58,11 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
-  build_runner: ^2.1.11
+  flutter_test:
+    sdk: flutter
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter packages.
 flutter:
 
@@ -83,10 +77,8 @@ flutter:
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
@@ -103,16 +95,14 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
-
   fonts:
     - family: RobotoMono
       fonts:
         - asset: assets/fonts/RobotoMono-Italic-VariableFont_wght.ttf
-        
+
           style: normal
     - family: Sans
       fonts:
         - asset: assets/fonts/OpenSans-VariableFont_wdth,wght.ttf
-  #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

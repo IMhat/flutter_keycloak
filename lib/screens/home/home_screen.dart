@@ -132,11 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
         shadowColor: Colors.black,
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text(
-          "Cocreator",
-          style: TextStyle(
-              fontSize: 30, fontWeight: FontWeight.w600, color: Colors.black),
-        ),
+        title: (Image.asset('assets/logo3.png')),
         // title: Row(
         //   children: [
         //     SizedBox(
