@@ -8,7 +8,7 @@ class TextToSpeech {
   static initTTS() {
     // tts.setLanguage("en-US");
    
-    tts.setLanguage("es-MX");
+    tts.setLanguage("bn-BD-language");
     tts.setPitch(1.0);
     tts.synthesizeToFile("Hello soy siri", Platform.isMacOS ? "tts.wav" : "tts.caf");
     tts.setVoice({"name": "Siri", "locale": "es-MX"});
