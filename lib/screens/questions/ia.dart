@@ -75,14 +75,22 @@ class _OnboardingIaScreenState extends State<OnboardingIaScreen> {
                 const SizedBox(
                   height: 80,
                 ),
-                IconButton(
-                  icon: Image.asset('assets/logo2.png'),
-                  iconSize: 200,
-                  onPressed: () {},
-                ),
+                // IconButton(
+                //   icon: Image.asset('assets/logo2.png'),
+                //   iconSize: 200,
+                //   onPressed: () {},
+                // ),
+                Container(
+                    height: 50,
+                    width: 550,
+                    child: IconButton(
+                      icon: Image.asset('assets/logo2.png'),
+                      iconSize: 600,
+                      onPressed: () {},
+                    )),
                 // ACA HAY QUE AÑADIR LA PELOTA BLANCA QUE HABLA Y TIENE EFECTOS--------------------------
                 const SizedBox(
-                  height: 80,
+                  height: 40,
                   width: 350,
                 ),
 
@@ -99,7 +107,8 @@ class _OnboardingIaScreenState extends State<OnboardingIaScreen> {
                   width: 350,
                 ),
                 SizedBox(
-                    child: Align(
+                    child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 40),
                   alignment: Alignment.centerLeft,
                   child: SmallText(
                     text:

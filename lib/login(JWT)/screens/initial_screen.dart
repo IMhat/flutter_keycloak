@@ -183,7 +183,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _dividerTittle() {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: EdgeInsets.symmetric(vertical: 0),
       child: Row(
         children: <Widget>[
           SizedBox(
@@ -324,11 +324,14 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _title() {
-    return IconButton(
-      icon: Image.asset('assets/logo.png'),
-      iconSize: 300,
-      onPressed: () {},
-    );
+    return Container(
+        height: 130,
+        width: 550,
+        child: IconButton(
+          icon: Image.asset('assets/logo.png'),
+          iconSize: 600,
+          onPressed: () {},
+        ));
   }
 
   // Widget _emailPasswordWidget() {
@@ -456,7 +459,7 @@ class _LoginPageState extends State<LoginPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(height: height * .1),
+                  SizedBox(height: 50),
                   _title(),
                   _dividerTittle(),
                   SizedBox(height: 20),

@@ -75,9 +75,16 @@ class _Question1ScreenState extends State<Question1Screen> {
                   height: 60,
                 ),
 
-            
-                   Image.asset('assets/logo2.png'),
-                  
+                Image.asset('assets/logo2.png'),
+                // Container(
+                //     height: 40,
+                //     width: 550,
+                //     child: IconButton(
+                //       icon: Image.asset('assets/logo2.png'),
+                //       iconSize: 600,
+                //       onPressed: () {},
+                //     )),
+
                 //aca va la pelota que habla
 
                 IconButton(
@@ -89,7 +96,8 @@ class _Question1ScreenState extends State<Question1Screen> {
                   height: 20,
                 ),
                 SizedBox(
-                    child: Align(
+                    child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 40),
                   alignment: Alignment.centerLeft,
                   child: SmallText(
                     text:

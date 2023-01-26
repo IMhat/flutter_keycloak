@@ -80,7 +80,7 @@ class _BottomBarState extends State<BottomBar> {
           // ),
         ),
         PersistentBottomNavBarItem(
-          icon: Icon(CupertinoIcons.home),
+          icon: Icon(CupertinoIcons.chart_bar_alt_fill),
           title: ("CashFlow"),
           activeColorPrimary: CupertinoColors.activeBlue,
           inactiveColorPrimary: CupertinoColors.systemGrey,

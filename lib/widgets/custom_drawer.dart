@@ -27,14 +27,14 @@ class _CustomDrawerState extends State<CustomDrawer> {
     final user = context.watch<UserProvider>().user;
 
     return Scaffold(
-      backgroundColor: AppTheme.primary,
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: ListView(
         children: [
           Container(
             margin: const EdgeInsets.only(top: 20),
             width: double.infinity,
             height: 80,
-            color: AppTheme.primary,
+            color: Color.fromARGB(255, 255, 255, 255),
             child: Container(
               margin: const EdgeInsets.only(right: 60),
               child: Column(
@@ -45,8 +45,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     user.name,
                     style: const TextStyle(
                         fontSize: 35,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white),
+                        fontWeight: FontWeight.w300,
+                        color: Color.fromARGB(255, 78, 152, 237)),
                   ),
                   const SizedBox(
                     height: 10,
@@ -64,16 +64,16 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ),
           const Divider(
             indent: 2,
-            color: Colors.white,
+            color: Color.fromRGBO(0, 0, 0, 1),
           ),
           ListTile(
             title: const Text(
-              'Home',
+              'Settings',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
             ),
             leading: const Icon(
-              Icons.home,
-              color: Colors.white,
+              Icons.settings,
+              color: Color.fromRGBO(0, 0, 0, 1),
             ),
             onTap: () {
               // Navigator.pushNamed(
@@ -84,12 +84,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ),
           ListTile(
             title: const Text(
-              'Balance',
+              'Support',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
             ),
             leading: const Icon(
-              Icons.monetization_on,
-              color: Colors.white,
+              Icons.help,
+              color: Colors.black,
             ),
             onTap: () {
               // Navigator.pushNamed(
@@ -100,12 +100,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ),
           ListTile(
             title: const Text(
-              'Cash Flow',
+              'English',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
             ),
             leading: const Icon(
-              Icons.analytics_outlined,
-              color: Colors.white,
+              Icons.language,
+              color: Colors.black,
             ),
             onTap: () {
               // Navigator.pushNamed(
@@ -114,21 +114,14 @@ class _CustomDrawerState extends State<CustomDrawer> {
               // );
             },
           ),
-          ListTile(
-            title: const Text(
-              'Profile',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+          Container(
+            height: 50,
+            width: 50,
+            child: IconButton(
+              icon: Image.asset('assets/coursera.png'),
+              iconSize: 10,
+              onPressed: () {},
             ),
-            leading: const Icon(
-              Icons.person_outline,
-              color: Colors.white,
-            ),
-            onTap: () {
-              // Navigator.pushNamed(
-              //   context,
-              //   '',
-              // );
-            },
           ),
           const SizedBox(
             height: 40,

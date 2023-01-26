@@ -72,9 +72,7 @@ class _Question2ScreenState extends State<Question2Screen> {
                   height: 60,
                 ),
 
-               
-                 Image.asset('assets/logo2.png'),
-                  
+                Image.asset('assets/logo2.png'),
 
                 IconButton(
                   icon: Image.asset('assets/image.png'),
@@ -86,7 +84,8 @@ class _Question2ScreenState extends State<Question2Screen> {
                   height: 20,
                 ),
                 SizedBox(
-                    child: Align(
+                    child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 40),
                   alignment: Alignment.center,
                   child: SmallText(
                     text:
