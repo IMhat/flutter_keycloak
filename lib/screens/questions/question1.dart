@@ -154,7 +154,7 @@ class _Question1ScreenState extends State<Question1Screen> {
                     //_storeOnboardInfo();
                     Navigator.pushNamed(
                       context,
-                      '/question-2',
+                      '/question-2_2',
                     );
                     //context.go('/question-2');
                   },
@@ -185,7 +185,7 @@ class _Question1ScreenState extends State<Question1Screen> {
                     //_storeOnboardInfo();
                     Navigator.pushNamed(
                       context,
-                      '/question-2',
+                      '/question-2_2',
                     );
                     //context.go('/question-2');
                   },

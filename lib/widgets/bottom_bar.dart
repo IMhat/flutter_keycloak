@@ -56,9 +56,9 @@ class _BottomBarState extends State<BottomBar> {
     List<Widget> _buildScreens() {
       return [
         const HomeScreen(),
-        const CashFlowScreen(),
-        const SpeechScreen(),
         const SocialScreen(),
+        const CashFlowScreen(),
+        const HomeScreen(),
         const ProfileScreen()
       ];
     }
@@ -80,29 +80,28 @@ class _BottomBarState extends State<BottomBar> {
           // ),
         ),
         PersistentBottomNavBarItem(
-          icon: Icon(CupertinoIcons.home),
+          // icon: CircleAvatar(
+          //     radius: 55, backgroundImage: AssetImage('assets/image.png')),
+          icon: Icon(CupertinoIcons.person_3_fill),
+          title: ("Comunity"),
+          activeColorPrimary: CupertinoColors.activeBlue,
+          inactiveColorPrimary: CupertinoColors.systemGrey,
+        ),
+        PersistentBottomNavBarItem(
+          icon: Icon(CupertinoIcons.chart_bar_alt_fill),
           title: ("CashFlow"),
           activeColorPrimary: CupertinoColors.activeBlue,
           inactiveColorPrimary: CupertinoColors.systemGrey,
         ),
         PersistentBottomNavBarItem(
-          // icon: CircleAvatar(
-          //     radius: 55, backgroundImage: AssetImage('assets/image.png')),
-          icon: Image.asset('assets/image.png'),
-          iconSize: 155,
-          title: ("Hakim"),
-          activeColorPrimary: CupertinoColors.systemGrey,
+          icon: Icon(CupertinoIcons.chat_bubble_text_fill),
+          title: ("Chat"),
+          activeColorPrimary: CupertinoColors.activeBlue,
           inactiveColorPrimary: CupertinoColors.systemGrey,
         ),
         PersistentBottomNavBarItem(
           icon: Icon(CupertinoIcons.profile_circled),
           title: ("Profile"),
-          activeColorPrimary: CupertinoColors.activeBlue,
-          inactiveColorPrimary: CupertinoColors.systemGrey,
-        ),
-        PersistentBottomNavBarItem(
-          icon: Icon(CupertinoIcons.settings),
-          title: ("Settings"),
           activeColorPrimary: CupertinoColors.activeBlue,
           inactiveColorPrimary: CupertinoColors.systemGrey,
         ),
@@ -140,7 +139,7 @@ class _BottomBarState extends State<BottomBar> {
         duration: Duration(milliseconds: 200),
       ),
       navBarStyle:
-          NavBarStyle.style15, // Choose the nav bar style with this property.
+          NavBarStyle.style13, // Choose the nav bar style with this property.
     );
   }
 

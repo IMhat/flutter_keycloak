@@ -104,9 +104,28 @@ class _SpeechScreenState extends State<SpeechScreen> {
         ),
       ),
       appBar: AppBar(
-        leading: const Icon(
-          Icons.sort_rounded,
+        // leading: const Icon(
+        //   Icons.sort_rounded,
+        //   color: Colors.white,
+        // ),
+        leading: BackButton(
           color: Colors.white,
+        ),
+        shadowColor: Colors.black,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.centerRight,
+                  end: Alignment.centerLeft,
+                  //     stops: [
+                  //   0.2,
+                  //   0.4,
+                  // ],
+                  colors: [
+                Color.fromARGB(255, 143, 200, 241),
+                // Color.fromARGB(255, 94, 129, 253),
+                Color.fromARGB(255, 70, 106, 234)
+              ])),
         ),
         centerTitle: true,
         backgroundColor: kBgColor,

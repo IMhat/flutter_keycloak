@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keycloakflutter/screens/hakim/screens/speech_screen.dart';
@@ -8,6 +10,8 @@ import 'package:keycloakflutter/screens/home/widgets_home/total_balance_card.dar
 import 'package:flutter/material.dart';
 import 'package:keycloakflutter/screens/login(keycloak)/service/auth_service.dart';
 import 'package:keycloakflutter/screens/questions/widgets/accounts.dart';
+import 'package:keycloakflutter/widgets/FloatHakeem.dart';
+import 'package:keycloakflutter/widgets/ia.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:provider/provider.dart';
 
@@ -236,7 +240,7 @@ class _HomeScreenState extends State<HomeScreen> {
           shadowColor: Colors.black,
           backgroundColor: Colors.white,
           centerTitle: true,
-          title: (Image.asset('assets/logo3.png')),
+          title: SizedBox(width: 180, child: (Image.asset('assets/logo3.png'))),
           // title: Row(
           //   children: [
           //     SizedBox(
@@ -416,9 +420,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 5,
                 ),
                 recentTransaction(),
+                //_HakimButton(),
                 const SizedBox(
                   height: 300,
-                )
+                ),
 
                 // AnalyticCard(),
                 // FooterHome(),
@@ -442,6 +447,19 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-        ));
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+            elevation: 5.0,
+            onPressed: () {
+              PersistentNavBarNavigator.pushNewScreen(context,
+                  withNavBar: false,
+                  screen: SpeechScreen(),
+                  pageTransitionAnimation: PageTransitionAnimation.slideUp);
+            },
+            label: Text(
+              'Hakim',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
+            ),
+            icon: FloatIaIcon()));
   }
 }

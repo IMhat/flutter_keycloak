@@ -1,8 +1,10 @@
 import 'package:another_quickbooks/another_quickbooks.dart';
 import 'package:another_quickbooks/quickbook_models.dart';
+import 'package:keycloakflutter/screens/hakim/screens/speech_screen.dart';
 import 'package:keycloakflutter/screens/home/home_screen.dart';
 
 import 'package:keycloakflutter/screens/home/services/quickbooks/service/quickbooks_service.dart';
+import 'package:keycloakflutter/widgets/FloatHakeem.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter/material.dart';
@@ -88,6 +90,65 @@ class _QuickbooksScreenState extends State<QuickbooksScreen> {
     setState(() {});
   }
 
+  Widget _webViewLoader() {
+    var loadingPercentage = 0;
+
+    return Stack(children: [
+      WebViewWidget(
+          controller: controller = WebViewController()
+            ..setJavaScriptMode(JavaScriptMode.unrestricted)
+            ..setBackgroundColor(const Color(0x00000000))
+            ..setNavigationDelegate(
+              NavigationDelegate(
+                onProgress: (int progress) {
+                  print('WebView is loading (progress : $progress%)');
+                  print(authUrl);
+                  //const Loader();
+                },
+                onPageStarted: (String url) {
+                  print('Page started loading: $url');
+                  //const Loader();
+                  loadingPercentage = 0;
+                },
+                onPageFinished: (String url) {
+                  print('Page finished loading: $url');
+
+                  //const Loader();
+                  loadingPercentage = 100;
+                },
+                onWebResourceError: (WebResourceError error) {
+                  //Loader();
+                },
+                onNavigationRequest: (NavigationRequest request) {
+                  if (request.url.startsWith(redirectUrl)) {
+                    print('blocking navigation to $request}');
+                    var url = Uri.parse(request.url);
+                    String code = url.queryParameters["code"]!;
+                    String realmId = url.queryParameters['realmId']!;
+                    // Request access token
+                    requestAccessToken(code, realmId);
+
+                    return NavigationDecision.prevent;
+                  }
+                  print('allowing navigation to $request');
+                  return NavigationDecision.navigate;
+                },
+              ),
+            )
+            ..loadRequest(Uri.parse(authUrl))),
+      if (loadingPercentage < 100)
+        // LinearProgressIndicator(
+        //   value: loadingPercentage / 100.0,
+        //   color: Colors.blue,
+        // ),
+        Loader()
+    ]);
+  }
+
+  Widget _webView() {
+    return Container(child: authUrl == '' ? Loader() : _webViewLoader());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,88 +156,171 @@ class _QuickbooksScreenState extends State<QuickbooksScreen> {
         //   title: Text(widget.title),
         // ),
         body: Container(
-      child: token == null
-          // ? WebViewWidget(controller: controller)
-          ? WebViewWidget(
-              controller: controller = WebViewController()
-                ..setJavaScriptMode(JavaScriptMode.unrestricted)
-                ..setBackgroundColor(const Color(0x00000000))
-                ..setNavigationDelegate(
-                  NavigationDelegate(
-                    onProgress: (int progress) {
-                      print('WebView is loading (progress : $progress%)');
-                      print(authUrl);
-                      const Loader();
-                    },
-                    onPageStarted: (String url) {
-                      print('Page started loading: $url');
-                      const Loader();
-                    },
-                    onPageFinished: (String url) {
-                      print('Page finished loading: $url');
-                      const Loader();
-                    },
-                    onWebResourceError: (WebResourceError error) {
-                      Loader();
-                    },
-                    onNavigationRequest: (NavigationRequest request) {
-                      if (request.url.startsWith(redirectUrl)) {
-                        print('blocking navigation to $request}');
-                        var url = Uri.parse(request.url);
-                        String code = url.queryParameters["code"]!;
-                        String realmId = url.queryParameters['realmId']!;
-                        // Request access token
-                        requestAccessToken(code, realmId);
-
-                        return NavigationDecision.prevent;
-                      }
-                      print('allowing navigation to $request');
-                      return NavigationDecision.navigate;
-                    },
-                  ),
-                )
-                ..loadRequest(Uri.parse(authUrl)))
-          : Container(
-              child: Stack(children: <Widget>[
-              Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: SingleChildScrollView(
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                        const SizedBox(height: 100),
-                        const SizedBox(
-                          child: Text(
-                            'Authenticated with quickbooks',
-                            style: TextStyle(
-                                fontSize: 35,
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 27, 27, 27)),
-                          ),
-                        ),
-                        const SizedBox(
-                          child: Text(
-                            'Token de acceso, del usuario para consultar info a quickbooks',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 27, 27, 27)),
-                          ),
-                        ),
-                        const SizedBox(height: 100),
-                        SizedBox(child: Text(token.toString())),
-                        const SizedBox(height: 10),
-                        SizedBox(
-                          child: ElevatedButton(
-                            child: const Text("Desconect"),
-                            onPressed: () =>
-                                PersistentNavBarNavigator.pushNewScreen(context,
-                                    screen: HomeScreen()),
-                          ),
-                        ),
-                      ]))),
-            ])),
-    ));
+          child: token == null
+              // ? WebViewWidget(controller: controller)
+              ? _webView()
+              : Container(
+                  child: Stack(children: <Widget>[
+                  Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: SingleChildScrollView(
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                            const SizedBox(height: 100),
+                            const SizedBox(
+                              child: Text(
+                                'Authenticated with quickbooks',
+                                style: TextStyle(
+                                    fontSize: 35,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromARGB(255, 27, 27, 27)),
+                              ),
+                            ),
+                            const SizedBox(
+                              child: Text(
+                                'Token de acceso, del usuario para consultar info a quickbooks',
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromARGB(255, 27, 27, 27)),
+                              ),
+                            ),
+                            const SizedBox(height: 100),
+                            SizedBox(child: Text(token.toString())),
+                            const SizedBox(height: 10),
+                            SizedBox(
+                              child: ElevatedButton(
+                                child: const Text("Desconect"),
+                                onPressed: () =>
+                                    PersistentNavBarNavigator.pushNewScreen(
+                                        context,
+                                        screen: HomeScreen()),
+                              ),
+                            ),
+                          ]))),
+                ])),
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+            elevation: 5.0,
+            onPressed: () {
+              print(token);
+              PersistentNavBarNavigator.pushNewScreen(context,
+                  withNavBar: false,
+                  screen: SpeechScreen(),
+                  pageTransitionAnimation: PageTransitionAnimation.slideUp);
+            },
+            label: Text(
+              'Hakim',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
+            ),
+            icon: FloatIaIcon()));
   }
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Scaffold(
+  //       // appBar: AppBar(
+  //       //   title: Text(widget.title),
+  //       // ),
+  //       body: Container(
+  //         child: token == null
+  //             // ? WebViewWidget(controller: controller)
+  //             ? WebViewWidget(
+  //                 controller: controller = WebViewController()
+  //                   ..setJavaScriptMode(JavaScriptMode.unrestricted)
+  //                   ..setBackgroundColor(const Color(0x00000000))
+  //                   ..setNavigationDelegate(
+  //                     NavigationDelegate(
+  //                       onProgress: (int progress) {
+  //                         print('WebView is loading (progress : $progress%)');
+  //                         print(authUrl);
+  //                         const Loader();
+  //                       },
+  //                       onPageStarted: (String url) {
+  //                         print('Page started loading: $url');
+  //                         const Loader();
+  //                       },
+  //                       onPageFinished: (String url) {
+  //                         print('Page finished loading: $url');
+  //                         const Loader();
+  //                       },
+  //                       onWebResourceError: (WebResourceError error) {
+  //                         Loader();
+  //                       },
+  //                       onNavigationRequest: (NavigationRequest request) {
+  //                         if (request.url.startsWith(redirectUrl)) {
+  //                           print('blocking navigation to $request}');
+  //                           var url = Uri.parse(request.url);
+  //                           String code = url.queryParameters["code"]!;
+  //                           String realmId = url.queryParameters['realmId']!;
+  //                           // Request access token
+  //                           requestAccessToken(code, realmId);
+
+  //                           return NavigationDecision.prevent;
+  //                         }
+  //                         print('allowing navigation to $request');
+  //                         return NavigationDecision.navigate;
+  //                       },
+  //                     ),
+  //                   )
+  //                   ..loadRequest(Uri.parse(authUrl)))
+  //             : Container(
+  //                 child: Stack(children: <Widget>[
+  //                 Container(
+  //                     padding: EdgeInsets.symmetric(horizontal: 20),
+  //                     child: SingleChildScrollView(
+  //                         child: Column(
+  //                             crossAxisAlignment: CrossAxisAlignment.center,
+  //                             mainAxisAlignment: MainAxisAlignment.center,
+  //                             children: <Widget>[
+  //                           const SizedBox(height: 100),
+  //                           const SizedBox(
+  //                             child: Text(
+  //                               'Authenticated with quickbooks',
+  //                               style: TextStyle(
+  //                                   fontSize: 35,
+  //                                   fontWeight: FontWeight.bold,
+  //                                   color: Color.fromARGB(255, 27, 27, 27)),
+  //                             ),
+  //                           ),
+  //                           const SizedBox(
+  //                             child: Text(
+  //                               'Token de acceso, del usuario para consultar info a quickbooks',
+  //                               style: TextStyle(
+  //                                   fontSize: 15,
+  //                                   fontWeight: FontWeight.bold,
+  //                                   color: Color.fromARGB(255, 27, 27, 27)),
+  //                             ),
+  //                           ),
+  //                           const SizedBox(height: 100),
+  //                           SizedBox(child: Text(token.toString())),
+  //                           const SizedBox(height: 10),
+  //                           SizedBox(
+  //                             child: ElevatedButton(
+  //                               child: const Text("Desconect"),
+  //                               onPressed: () =>
+  //                                   PersistentNavBarNavigator.pushNewScreen(
+  //                                       context,
+  //                                       screen: HomeScreen()),
+  //                             ),
+  //                           ),
+  //                         ]))),
+  //               ])),
+  //       ),
+  //       floatingActionButton: FloatingActionButton.extended(
+  //           elevation: 5.0,
+  //           onPressed: () {
+  //             Navigator.push(
+  //                 context,
+  //                 MaterialPageRoute(
+  //                   builder: (context) => SpeechScreen(),
+  //                 ));
+  //           },
+  //           label: Text(
+  //             'Hakim',
+  //             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
+  //           ),
+  //           icon: FloatIaIcon()));
+  // }
 }
