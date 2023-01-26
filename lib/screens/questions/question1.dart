@@ -41,7 +41,7 @@ class _Question1ScreenState extends State<Question1Screen> {
   }
 
   String msg =
-      " A continuación, selecciona una cuenta de servicios financieros, esto te ayudará a administrar mejor tus ingresos y egresos, como así también, mantenerte en contacto con tu servicio financiero. no usamos ningún tipo de información que hayas proporcionado ";
+      " Next, select a financial services account, this will help you better manage your income and expenses, as well as keep in touch with your financial service. We do not use any information you have provided";
 
   void talk() {
     Future.delayed(const Duration(milliseconds: 500), () {
@@ -101,7 +101,7 @@ class _Question1ScreenState extends State<Question1Screen> {
                   alignment: Alignment.centerLeft,
                   child: SmallText(
                     text:
-                        '  A continuación, selecciona una cuenta de servicios financieros, esto te ayudará a administrar mejor tus ingresos y egresos, como así también, mantenerte en contacto con tu servicio financiero. no usamos ningún tipo de información que hayas proporcionado ',
+                        '  Next, select a financial services account, this will help you better manage your income and expenses, as well as keep in touch with your financial service. We do not use any information you have provided',
                     size: 20,
                     color: Colors.white,
                   ),

@@ -38,7 +38,7 @@ class _Question2ScreenState extends State<Question2Screen> {
   }
 
   String msg =
-      "En esta pantalla, deberás responder el test de personalidad, esto nos ayuda a conocerte un poco más";
+      "On this screen, you will have to answer the personality test, this helps us to get to know you a little better.";
 
   void talk() {
     Future.delayed(const Duration(milliseconds: 500), () {
@@ -89,7 +89,7 @@ class _Question2ScreenState extends State<Question2Screen> {
                   alignment: Alignment.center,
                   child: SmallText(
                     text:
-                        ' en esta pantalla, deberás responder el test de personalidad, esto nos ayuda a conocerte un poco más',
+                        ' On this screen, you will have to answer the personality test, this helps us to get to know you a little better.',
                     size: 20,
                     color: Colors.white,
                   ),

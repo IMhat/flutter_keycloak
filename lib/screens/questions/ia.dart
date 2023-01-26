@@ -42,7 +42,7 @@ class _OnboardingIaScreenState extends State<OnboardingIaScreen> {
   }
 
   String msg =
-      "hola soy hakim, y en cocrietor estamos para que tu empresa tenga éxito";
+      "hi, my name is hakim, and cocreator is an application that helps you manage your business";
 
   void talk() {
     Future.delayed(const Duration(milliseconds: 500), () {
@@ -112,7 +112,7 @@ class _OnboardingIaScreenState extends State<OnboardingIaScreen> {
                   alignment: Alignment.centerLeft,
                   child: SmallText(
                     text:
-                        '  hola soy hakim, y en cocrietor estamos para que tu empresa tenga éxito',
+                        '  hi , my name is hakim, and cocreator is an application that helps you manage your business',
                     size: 20,
                     color: Colors.white,
                   ),

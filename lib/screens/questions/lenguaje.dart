@@ -194,7 +194,7 @@ class LenguajeScreen extends StatelessWidget {
                     );
                     // context.go('/OnboardingIa');
                   },
-                  text: 'Continuos',
+                  text: 'Continue',
                 ),
                 // TextButton(
                 //   onPressed: () {
