@@ -9,7 +9,7 @@ class TextToSpeech {
     // tts.setLanguage("en-US");
    
     tts.setLanguage("bn-BD-language");
-    tts.setPitch(0.1);
+    tts.setPitch(0.5);
     
   }
 

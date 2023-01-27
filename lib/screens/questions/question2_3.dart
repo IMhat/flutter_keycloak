@@ -1,20 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:keycloakflutter/screens/login(keycloak)/constant.dart';
-import 'package:keycloakflutter/screens/questions/widgets/answer_button.dart';
-import 'package:keycloakflutter/screens/questions/widgets/big_text.dart';
 import 'package:keycloakflutter/screens/questions/widgets/big_text_black.dart';
-import 'package:keycloakflutter/screens/questions/widgets/lenguague_button.dart';
-import 'package:keycloakflutter/screens/questions/widgets/question.dart';
-import 'package:keycloakflutter/screens/questions/widgets/question_picker.dart';
-import 'package:keycloakflutter/screens/questions/widgets/small_text.dart';
-
-import 'package:keycloakflutter/widgets/bottom_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../hakim/controllers/tts.dart';
+import 'widgets/button_grey.dart';
 import 'widgets/button_gradient.dart';
+import 'package:keycloakflutter/screens/questions/widgets/picker_roles.dart';
 
 class Question2_3Screen extends StatefulWidget {
   static const String routeName = '/question-2_3';
@@ -44,7 +35,14 @@ class _Question2_3ScreenState extends State<Question2_3Screen> {
     talk();
   }
 
-  String msg = "Contesta las preguntas sobre tu negocio";
+  String msg = "What type of profile do you have in your company?";
+
+  final List<PickerItem> rolesModes = [
+    PickerItem("Owner", "assets/English.jpg"),
+    PickerItem("Manager", "assets/English.jpg"),
+    PickerItem("Administrator", "assets/English.jpg"),
+    PickerItem("Other", "assets/English.jpg"),
+  ];
 
   void talk() {
     Future.delayed(const Duration(milliseconds: 500), () {
@@ -60,114 +58,138 @@ class _Question2_3ScreenState extends State<Question2_3Screen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         key: _businessQuestion2FormKey,
         children: <Widget>[
-          Text('Name Company',
+          Text("What's Your role in the company",
               style: GoogleFonts.poppins(
                 color: Colors.white,
                 fontSize: 20,
               )),
-          const SizedBox(
-            height: 15,
-          ),
-          TextFormField(
-            controller: _selectorController,
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              hintText: 'Enter name',
-              border: const OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.black38,
-                ),
-              ),
-              enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.black38,
-                ),
-              ),
-            ),
-            // validator: (val) {
-            //   if (val == null || val.isEmpty) {
-            //     return 'Please enter $hintText';
-            //   }
-            //   return null;
-            // },
-            // maxLines: maxLines,
-          ),
           const SizedBox(
             height: 25,
           ),
-          Text(
-            'Selector',
-            style: TextStyle(
-                fontWeight: FontWeight.w400, fontSize: 20, color: Colors.white),
+          ButtonGray(
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                  begin: AlignmentDirectional.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: [
+                    0.2,
+                    0.5,
+                    10
+                  ],
+                  colors: [
+                    (Color.fromARGB(255, 255, 255, 255)),
+                    Color.fromARGB(255, 255, 255, 255),
+                    Color.fromARGB(255, 255, 255, 255)
+                  ]),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            onTap: () {
+              /*
+              _storeOnboardInfo();
+              Navigator.pushNamed(
+                context,
+                '/question-2',
+              );
+              */
+            },
+            text: 'Owner',
+            
           ),
           const SizedBox(
             height: 15,
           ),
-          // CustomTextField(
 
-          //   controller: _passwordController,
-          //   hintText: 'Enter Password',
-          // ),
-
-          TextFormField(
-            controller: _selectorController,
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              hintText: 'Select',
-              border: const OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.black38,
-                ),
-              ),
-              enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.black38,
-                ),
-              ),
+          ButtonGray(
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                  begin: AlignmentDirectional.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: [
+                    0.2,
+                    0.5,
+                    10
+                  ],
+                  colors: [
+                    (Color.fromARGB(255, 255, 255, 255)),
+                    Color.fromARGB(255, 255, 255, 255),
+                    Color.fromARGB(255, 255, 255, 255)
+                  ]),
+              borderRadius: BorderRadius.circular(15),
             ),
-            // validator: (val) {
-            //   if (val == null || val.isEmpty) {
-            //     return 'Please enter $hintText';
-            //   }
-            //   return null;
-            // },
-            // maxLines: maxLines,
+            onTap: () {
+              /*
+              _storeOnboardInfo();
+              Navigator.pushNamed(
+                context,
+                '/question-2',
+              );
+              */
+            },
+            text: 'Manager',
           ),
           const SizedBox(
             height: 15,
           ),
-          Text('Number of employees',
-              style: GoogleFonts.poppins(
-                color: Colors.white,
-                fontSize: 20,
-              )),
+          ButtonGray(
+            decoration: BoxDecoration(
 
-          TextFormField(
-            controller: _nameCompanyController,
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              hintText: 'Select',
-              border: const OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.black38,
-                ),
-              ),
-              enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.black38,
-                ),
-              ),
+              gradient: const LinearGradient(
+                  begin: AlignmentDirectional.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: [
+                    0.2,
+                    0.5,
+                    10
+                  ],
+                  colors: [
+                    (Color.fromARGB(255, 255, 255, 255)),
+                    Color.fromARGB(255, 255, 255, 255),
+                    Color.fromARGB(255, 255, 255, 255)
+                  ]),
+              borderRadius: BorderRadius.circular(15),
             ),
-            // validator: (val) {
-            //   if (val == null || val.isEmpty) {
-            //     return 'Please enter $hintText';
-            //   }
-            //   return null;
-            // },
-            // maxLines: maxLines,
+            onTap: () {
+              /*
+              _storeOnboardInfo();
+              Navigator.pushNamed(
+                context,
+                '/question-2',
+              );
+              */
+            },
+            text: 'Administrator',
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          ButtonGray(
+            decoration: BoxDecoration(
+
+              gradient: const LinearGradient(
+                  begin: AlignmentDirectional.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: [
+                    0.2,
+                    0.5,
+                    10
+                  ],
+                  colors: [
+                    (Color.fromARGB(255, 255, 255, 255)),
+                    Color.fromARGB(255, 255, 255, 255),
+                    Color.fromARGB(255, 255, 255, 255)
+                  ]),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            onTap: () {
+              /*
+              _storeOnboardInfo();
+              Navigator.pushNamed(
+                context,
+                '/question-2',
+              );
+              */
+            },
+            text: 'Other',
           ),
         ],
       ),
@@ -211,17 +233,6 @@ class _Question2_3ScreenState extends State<Question2_3Screen> {
                 const SizedBox(
                   height: 20,
                 ),
-                // SizedBox(
-                //     child: Container(
-                //   padding: EdgeInsets.symmetric(horizontal: 40),
-                //   alignment: Alignment.center,
-                //   child: SmallText(
-                //     text:
-                //         ' en esta pantalla, deberás responder el test de personalidad, esto nos ayuda a conocerte un poco más',
-                //     size: 20,
-                //     color: Colors.white,
-                //   ),
-                // )),
 
                 const SizedBox(
                   height: 20,
@@ -229,9 +240,9 @@ class _Question2_3ScreenState extends State<Question2_3Screen> {
                 ),
                 SizedBox(
                     child: Align(
-                  alignment: Alignment.centerLeft,
+                  alignment: Alignment.center,
                   child: BigTextBlack(
-                    text: '  Set up about your bussiness',
+                    text: "Setup about your business",
                     size: 30,
                     color: Colors.white,
                   ),
@@ -268,7 +279,7 @@ class _Question2_3ScreenState extends State<Question2_3Screen> {
                     _storeOnboardInfo();
                     Navigator.pushNamed(
                       context,
-                      '/question-2',
+                      '/question-2_2',
                     );
                     //context.go('/question-3');
                   },
@@ -278,46 +289,6 @@ class _Question2_3ScreenState extends State<Question2_3Screen> {
                   height: 20,
                 ),
 
-                // ButtonGradient(
-                //   decoration: BoxDecoration(
-                //     gradient: const LinearGradient(
-                //         begin: AlignmentDirectional.topCenter,
-                //         end: Alignment.bottomCenter,
-                //         stops: [
-                //           0,
-                //           1,
-                //           0
-                //         ],
-                //         colors: [
-                //           (Color.fromARGB(255, 255, 255, 255)),
-                //           Color.fromARGB(0, 255, 255, 255),
-                //           Color.fromARGB(255, 255, 255, 255)
-                //         ]),
-                //     borderRadius: BorderRadius.circular(15),
-                //   ),
-                //   onTap: () {
-                //     _storeOnboardInfo();
-                //     Navigator.pushNamed(
-                //       context,
-                //       '/actual-home',
-                //     );
-                //     //context.go('/question-3');
-                //   },
-                //   text: '  Later >|',
-                // ),
-                // TextButton(
-                //   onPressed: () {
-                //     _storeOnboardInfo();
-                //     Navigator.pushReplacement(context,
-                //         MaterialPageRoute(builder: (context) => BottomBar()));
-                //   },
-                //   child: Text(
-                //     "Skip",
-                //     style: TextStyle(
-                //       color: kwhite,
-                //     ),
-                //   ),
-                // ),
                 const SizedBox(
                   height: 200,
                 ),

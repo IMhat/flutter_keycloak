@@ -45,7 +45,7 @@ class _Question2_2ScreenState extends State<Question2_2Screen> {
     talk();
   }
 
-  String msg = "Contesta las preguntas sobre tu negocio";
+  String msg = "Answer questions about your business";
 
   void talk() {
     Future.delayed(const Duration(milliseconds: 500), () {
@@ -270,7 +270,7 @@ class _Question2_2ScreenState extends State<Question2_2Screen> {
                     _storeOnboardInfo();
                     Navigator.pushNamed(
                       context,
-                      '/question-2_3',
+                      '/question-1',
                     );
                     //context.go('/question-3');
                   },

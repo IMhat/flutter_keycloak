@@ -137,11 +137,11 @@ class _QuickbooksScreenState extends State<QuickbooksScreen> {
             )
             ..loadRequest(Uri.parse(authUrl))),
       if (loadingPercentage < 100)
-        // LinearProgressIndicator(
-        //   value: loadingPercentage / 100.0,
-        //   color: Colors.blue,
-        // ),
-        Loader()
+        LinearProgressIndicator(
+          value: loadingPercentage / 100.0,
+          color: Colors.blue,
+        ),
+        //Loader()
     ]);
   }
 

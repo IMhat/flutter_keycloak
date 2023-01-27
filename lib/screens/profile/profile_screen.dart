@@ -56,6 +56,10 @@ class _ProfileScreenState extends State<ProfileScreen>
                     child: CustomPaint(
                       painter: _HeaderWaveGradientPainter(),
                       child: AppBar(
+                        centerTitle: true,
+                        title: SizedBox(
+                            width: 180,
+                            child: (Image.asset('assets/logo3.png'))),
                         backgroundColor: Colors.transparent,
                         flexibleSpace: Container(
                           decoration: const BoxDecoration(

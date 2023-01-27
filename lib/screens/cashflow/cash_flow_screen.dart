@@ -42,6 +42,8 @@ class _CashFlowScreenState extends State<CashFlowScreen>
           child: CustomDrawer(),
         ),
         appBar: AppBar(
+          centerTitle: true,
+          title: SizedBox(width: 180, child: (Image.asset('assets/logo3.png'))),
           flexibleSpace: Container(
             decoration: const BoxDecoration(
                 gradient: LinearGradient(

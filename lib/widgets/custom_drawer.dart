@@ -1,7 +1,6 @@
 // import 'package:keycloakflutter/shared/preferences.dart';
 import 'package:keycloakflutter/login(JWT)/services/auth_service.dart';
-import 'package:keycloakflutter/theme/app_theme.dart';
-import 'package:keycloakflutter/widgets/switch_dark_mode.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -31,45 +30,66 @@ class _CustomDrawerState extends State<CustomDrawer> {
       body: ListView(
         children: [
           Container(
-            margin: const EdgeInsets.only(top: 20),
-            width: double.infinity,
-            height: 80,
+              width: 30,
+              height: 40,
+              margin: const EdgeInsets.only(left: 200),
+              child: IconButton(
+                icon: Image.asset('assets/close.png'),
+                iconSize: 8,
+                onPressed: () {
+                  Navigator.popAndPushNamed(context, '/home');
+                },
+              )),
+          Container(
+            width: 50,
+            height: 100,
+            margin: const EdgeInsets.only(right: 200),
+            child: IconButton(
+              icon: Image.asset('assets/userlogo.png'),
+              iconSize: 100,
+              onPressed: () {},
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.all(8.0),
+            width: 90,
+            height: 100,
             color: Color.fromARGB(255, 255, 255, 255),
             child: Container(
               margin: const EdgeInsets.only(right: 60),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+              child: ListView(
                 children: [
                   Text(
                     // 'Hi Guest',
                     user.name,
                     style: const TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.w300,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 78, 152, 237)),
                   ),
                   const SizedBox(
-                    height: 10,
+                    width: 40,
+                    height: 30,
                   ),
                   const Text(
-                    'Track your Shopping activities',
+                    'My Company',
                     style: TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
                   ),
                 ],
               ),
             ),
           ),
           const Divider(
-            indent: 2,
+            indent: 5,
             color: Color.fromRGBO(0, 0, 0, 1),
           ),
           ListTile(
             title: const Text(
               'Settings',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             leading: const Icon(
               Icons.settings,
@@ -85,7 +105,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ListTile(
             title: const Text(
               'Support',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             leading: const Icon(
               Icons.help,
@@ -101,7 +121,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ListTile(
             title: const Text(
               'English',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             leading: const Icon(
               Icons.language,
@@ -115,6 +135,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             },
           ),
           Container(
+            margin: const EdgeInsets.only(right: 100),
             height: 50,
             width: 50,
             child: IconButton(
@@ -126,6 +147,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
           const SizedBox(
             height: 40,
           ),
+          const Divider(
+            indent: 5,
+            color: Color.fromRGBO(0, 0, 0, 1),
+          ),
+          const SizedBox(
+            height: 150,
+          ),
           TextButton.icon(
               onPressed: (() {
                 //AuthService.instance.logout();(CIERRE DE SESION CON KEYCLOAK!)
@@ -133,16 +161,16 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 authService.logOut(context);
               }),
               icon: const Icon(
-                Icons.exit_to_app,
-                color: Colors.white,
+                Icons.logout,
+                color: Colors.black,
               ),
               label: const Text(
-                'Cierre de sesion',
-                style: TextStyle(color: Colors.white),
+                'Log out',
+                style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
               )),
-          Column(
-            children: const [SwitchDarkMode()],
-          )
         ],
       ),
     );
