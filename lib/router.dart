@@ -13,6 +13,8 @@ import 'package:keycloakflutter/screens/profile/profile_screen.dart';
 import 'package:keycloakflutter/screens/questions/ia.dart';
 import 'package:keycloakflutter/screens/questions/question1.dart';
 import 'package:keycloakflutter/screens/questions/question2.dart';
+import 'package:keycloakflutter/screens/questions/question2_2.dart';
+import 'package:keycloakflutter/screens/questions/question2_3.dart';
 import 'package:keycloakflutter/social%20media/social_screen.dart';
 import 'package:keycloakflutter/widgets/bottom_bar.dart';
 
@@ -61,6 +63,16 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const Question2Screen(),
+      );
+    case Question2_2Screen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const Question2_2Screen(),
+      );
+    case Question2_3Screen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const Question2_3Screen(),
       );
     // case Question3Screen.routeName:
     //   return MaterialPageRoute(

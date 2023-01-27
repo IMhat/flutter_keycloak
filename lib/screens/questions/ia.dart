@@ -175,7 +175,7 @@ class _OnboardingIaScreenState extends State<OnboardingIaScreen> {
                     //_storeOnboardInfo();
                     Navigator.pushNamed(
                       context,
-                      '/question-1',
+                      '/question-2_3',
                     );
                     //context.go('/question-1');
                   },

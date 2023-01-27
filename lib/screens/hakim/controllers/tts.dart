@@ -7,12 +7,14 @@ class TextToSpeech {
 
   static initTTS() {
     // tts.setLanguage("en-US");
-
+   
     tts.setLanguage("bn-BD-language");
     tts.setPitch(0.5);
+    
   }
 
   static speak(String text) async {
+    
     tts.setStartHandler(() {
       print('TTS IS STARTED');
     });
